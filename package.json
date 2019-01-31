@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/UP822718/Group-A1#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mysql2": "^1.6.4"
   }
 }
