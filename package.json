@@ -1,0 +1,26 @@
+{
+  "name": "group_a1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/server/main.js ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/main.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UP822718/Group-A1.git"
+  },
+  "keywords": [
+    "fitnuss"
+  ],
+  "author": "up82218 up721201 up836734 and 3 others",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UP822718/Group-A1/issues"
+  },
+  "homepage": "https://github.com/UP822718/Group-A1#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
