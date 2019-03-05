@@ -8,7 +8,7 @@ let config =  require('./config.json');
  */
 const sqlSetup = fs.readFileSync('server/sqlSetup.sql').toString();
 init();
-const connection = null;
+let connection = null;
 async function init() {
     connection = await mysql2.createConnection(config.sql);
     connection.execute(sqlSetup);
