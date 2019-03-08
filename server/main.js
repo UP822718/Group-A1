@@ -1,10 +1,9 @@
 "use strict";
-
 const express = require('express');
 const mysql = require('mysql2');
 const googleAuth = require('simple-google-openid');
 const bcrypt = require('bcrypt');
-
+let mysql2 = require('./database.js')
 
 const app = express();
 
