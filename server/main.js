@@ -26,11 +26,44 @@ connection.connect(function(e) {
 app.use(express.urlencoded());
 app.use(express.static('./static'));
 
+app.get('/', function(req,res) {
+    response.redirect('./login.html');
+});
+app.get('/profile', function(req,res) {
+    res.send('You are logged in!');
+});
+
 app.post('/login', authLogin);
 app.post('/signup', authUser);
 
 async function authLogin(req,res) {
+    const username = req.body.username;
+    let sql = 'SELECT * FROM user WHERE username = ?';
 
+    connection.query(sql, username, function(e, results) {
+       if (e) {
+         throw e;
+       }
+       else {
+         if (results.length > 0) {
+           bcrypt.compare(req.body.password, results[0].password, function(e,result) {
+             if (result) {
+                console.log("Password Matches");
+                res.redirect("/profile");
+
+             }
+             else {
+                console.log("Password Doesn't Match");
+                res.redirect("/");
+             }
+           });
+         }
+         else {
+           console.log("Username Doesnt match any Accounts");
+           res.redirect("/");
+         }
+       }
+     });
 }
 async function authUser(req,res) {
     const username = req.body.username;
