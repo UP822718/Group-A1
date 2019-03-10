@@ -4,8 +4,7 @@
   "description": "",
   "main": "/server/main.js ",
   "scripts": {
-    "test": "node ./test/main.js",
-    "post_install": "node ./post_install.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/main.js "
   },
   "repository": {
