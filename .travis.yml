@@ -6,6 +6,6 @@ services:
 - mongodb
 before_script:
   - npm install
-  - npm run post_install
+  - npm post_install
 script:
   - npm test
