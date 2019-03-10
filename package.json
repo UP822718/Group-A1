@@ -5,7 +5,7 @@
   "main": "/server/main.js ",
   "scripts": {
     "test": "node ./test/test.js",
-    "post_install": "node ./post_install.js",
+    "postinstall": "node ./post_install.js",
     "start": "node ./server/main.js "
   },
   "repository": {
