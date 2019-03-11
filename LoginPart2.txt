@@ -1,0 +1,18 @@
+<script language="javascript">
+function check(form)
+{
+
+if(form.userid.value == "Team 1A" && form.pwd.value == "team1")
+{
+	return true;
+}
+else
+{
+	alert("Error Password or Username")
+	return false;
+}
+}
+</script>
+
+</body>
+</html>
