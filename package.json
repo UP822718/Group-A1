@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/UP822718/Group-A1#readme",
   "dependencies": {
+    "bcrypt": "^3.0.4",
     "express": "^4.16.4",
-    "mysql2": "^1.6.5"
+    "express-session": "^1.15.6",
+    "mysql2": "^1.6.5",
+    "simple-google-openid": "^0.2.3"
   }
 }

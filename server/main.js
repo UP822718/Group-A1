@@ -1,9 +1,9 @@
 "use strict";
 const express = require('express');
+const session = require('express-session');
 const mysql = require('mysql2');
 const googleAuth = require('simple-google-openid');
 const bcrypt = require('bcrypt');
-let mysql2 = require('./database.js')
 
 const app = express();
 
@@ -24,12 +24,23 @@ connection.connect(function(e) {
 
 app.use(express.urlencoded());
 app.use(express.static('./static'));
+app.use(session({
+    secret: 'temp-secret',
+    resave: false,
+    saveUnitialized: false
+}));
 
 app.get('/', function(req,res) {
     response.redirect('./login.html');
 });
 app.get('/profile', function(req,res) {
-    res.send('You are logged in!');
+    if (!req.session || !req.session.authenticate) {
+        res.status(403);
+    }
+    else {
+        res.send(req.session.username);
+        console.log("Showing profile for user", req.session.username);
+    }
 });
 
 app.post('/login', authLogin);
@@ -48,6 +59,8 @@ async function authLogin(req,res) {
            bcrypt.compare(req.body.password, results[0].password, function(e,result) {
              if (result) {
                 console.log("Password Matches");
+                req.session.authenticate = true;
+                req.session.username = username;
                 res.redirect("/profile");
 
              }
