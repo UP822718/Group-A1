@@ -4,6 +4,27 @@
     <title>Statistics Page</title>
   </head>
   <body>
+    <style media="screen">
+
+      #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
+        border: 5px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+
+      }
+
+    </style>
+    <div id="primary-paragraph">
+      <h2 class="primary-paragraph" >Check out your stats</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+    </div>
+
     <!-- Headings -->
     <h1>Statistics</h1>
 
@@ -19,29 +40,29 @@
       </p>
 
       <form action="process.php">
-        <div>
-          <label for="name">First Name</label><br>
-          <input type="text" id="name" value="Donald">
+        <div id="first-name" >
+          <label for="first-name">First Name</label><br>
+          <input type="first-name" id="first-name" value="Donald">
         </div>
-        <div><br>
-          <label for="email">Last Name</label><br>
-          <input type="email" name="email" value="Duck">
+        <div id="last-name" ><br>
+          <label for="last-name">Last Name</label><br>
+          <input type="last-name" name="last-name" value="Duck">
         </div>
-        <div><br>
-          <label for="email">Weight in pounds(LB)</label><br>
-          <input type="email" name="email" value="100LB">
+        <div id="weight" ><br>
+          <label for="weight">Weight in pounds(LB)</label><br>
+          <input type="weight" name="weight" value="200LB">
         </div>
-        <div><br>
-          <label for="email">Height in meters(M)</label><br>
-          <input type="email" name="email" value="1.87M">
+        <div id="height" ><br>
+          <label for="height">Height in meters(M)</label><br>
+          <input type="height" name="height" value="1.87M">
         </div>
-        <div><br>
-          <label for="email">Hydration levels in liters(L)</label><br>
-          <input type="email" name="email" value="Moderate">
+        <div id="hydration" ><br>
+          <label for="hydration">Hydration levels in liters(L)</label><br>
+          <input type="hydration" name="hydration" value="5 liters">
         </div>
-        <div><br>
-          <label for="email">Steps taken today</label><br>
-          <input type="email" name="email" value="77,777 steps">
+        <div id="steps" ><br>
+          <label for="steps">Steps taken today</label><br>
+          <input type="steps" name="steps" value="77,777 steps">
         </div>
       </form>
 
