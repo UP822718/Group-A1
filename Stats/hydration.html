@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+
+window.onload = function () {
+HMonday=1.3
+HTuesday=1.6
+HWednesday=1.4
+HThursday=0.5
+HFriday=1.5
+HSaturday = 1.4
+HSunday = 1.7
+
+var chart = new CanvasJS.Chart("Hydration Level", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Hydration Level"
+	},
+	axisY: {
+		title: "Hydration in liter"
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+		legendText: "Days of the Week",
+		dataPoints: [      
+			{ y: HMonday, label: "Monday" },
+			{ y: HTuesday,  label: "Tuesday" },
+			{ y: HWednesday,  label: "Wednesday" },
+			{ y: HThursday,  label: "Thursday" },
+			{ y: HFriday,  label: "Friday" },
+			{ y: HSaturday, label: "Saturday" },
+			{ y: HSunday,  label: "Sunday" },
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="Hydration Level" style="height: 370px; width: 50%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

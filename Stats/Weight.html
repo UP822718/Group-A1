@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+
+window.onload = function () {
+WMonday=90
+WTuesday=91
+WWednesday=90
+WThursday=89
+WFriday=88
+WSaturday = 89
+WSunday = 88
+
+var chart = new CanvasJS.Chart("Weight", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Weight"
+	},
+	axisY: {
+		title: "Weight in kg"
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+		legendText: "Days of the Week",
+		dataPoints: [      
+			{ y: WMonday, label: "Monday" },
+			{ y: WTuesday,  label: "Tuesday" },
+			{ y: WWednesday,  label: "Wednesday" },
+			{ y: WThursday,  label: "Thursday" },
+			{ y: WFriday,  label: "Friday" },
+			{ y: WSaturday, label: "Saturday" },
+			{ y: WSunday,  label: "Sunday" },
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="Weight" style="height: 370px; width: 50%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
