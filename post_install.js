@@ -11,3 +11,4 @@ async function sqlSetup() {
     }
 }
 sqlSetup();
+process.exit(0)
