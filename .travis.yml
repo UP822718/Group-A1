@@ -6,6 +6,6 @@ services:
   - mariadb
 before_script:
   - npm install
-script:
   - npm run postinstall
+script:
   - npm run test
