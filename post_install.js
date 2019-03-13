@@ -6,8 +6,8 @@ let initDBsql = require('./initDBsql.json');
 async function sqlSetup() {
   const connection = await mysql2.createConnection({ host: "localhost",user: "root",password: "root"});
 
-    for (varsql of initDBsql.sql) {
-     await connection.execute(variable);
+    for (let varsql of initDBsql.sql) {
+     await connection.execute(varsql );
     }
 }
 sqlSetup();
