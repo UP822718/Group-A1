@@ -4,8 +4,6 @@ addons:
   mariadb: '10.0'
 node_js:
   - "node"
-services:
-  - mariadb
 before_script:
   - npm install
   - npm run postinstall
