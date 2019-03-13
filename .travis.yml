@@ -1,5 +1,7 @@
 dist: trusty
 language: node_js
+addons:
+  mariadb: '10.0'
 node_js:
   - "node"
 services:
