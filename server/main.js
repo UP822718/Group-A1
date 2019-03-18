@@ -2,7 +2,6 @@
 const express = require('express');
 const session = require('express-session');
 const mysql = require('mysql2');
-const googleAuth = require('simple-google-openid');
 const bcrypt = require('bcrypt');
 
 const app = express();
@@ -35,7 +34,7 @@ app.get('/', function(req,res) {
 });
 app.get('/profile', function(req,res) {
     if (!req.session || !req.session.authenticate) {
-        res.status(403);
+        res.send("You're not Logged in");
     }
     else {
         res.send(req.session.username);
