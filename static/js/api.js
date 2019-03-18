@@ -9,32 +9,62 @@ await fetch('/api/firstname', {
   });
 }
 
-function setLastName() {
-  fetch('');
+function setLastName(name) {
+
+  await fetch('/api/lastname', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/text',
+        'Content-Type': 'application/text'
+      },
+      body: name
+    });
+}
+
+
+function setWeight(weight) {
+  fetch('/api/weight', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/text',
+        'Content-Type': 'application/text'
+      },
+      body: weight
+    });
 
 }
 
-function setLastName() {
-  fetch('');
+function setHeight(height) {
+  fetch('/api/height', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/text',
+        'Content-Type': 'application/text'
+      },
+      body: height
+    });
 
 }
 
-function setWeight() {
-  fetch('');
+function setHydration(liter) {
+  fetch('/api/hydration', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/text',
+        'Content-Type': 'application/text'
+      },
+      body: liter
+    });
 
 }
-
-function setHeight() {
-  fetch('');
-
-}
-
-function setHydration() {
-  fetch('');
-
-}
-
-function setStepsTaken() {
-  fetch('');
+function setStepsTaken(steps) {
+  fetch('/api/stepstake', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/text',
+        'Content-Type': 'application/text'
+      },
+      body: steps
+    });
 
 }
