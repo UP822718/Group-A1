@@ -50,11 +50,56 @@ var chart = new CanvasJS.Chart("Hydration Level", {
 });
 chart.render();
 
+
+WMonday=90
+WTuesday=91
+WWednesday=90
+WThursday=89
+WFriday=88
+WSaturday = 89
+WSunday = 88
+Wdaynum =0
+Wday1 ="Monday " + (Wdaynum+1)
+Wday2 ="Tuesday " + (Wdaynum+2)
+Wday3 ="Wednesday "+ (Wdaynum+3)
+Wday4 ="Thursday "+ (Wdaynum+4)
+Wday5 ="Friday "+ (Wdaynum+5)
+Wday6 ="Saturday "+(Wdaynum+6)
+Wday7 ="Sunday "+ (Wdaynum+7)
+
+var chart = new CanvasJS.Chart("Weight", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Weight"
+	},
+	axisY: {
+		title: "Weight in kg"
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "black",
+		legendText: "Days of the Week",
+		dataPoints: [      
+			{ y: WMonday,     label: Wday1 },
+			{ y: WTuesday,    label: Wday2 },
+			{ y: WWednesday,  label: Wday3 },
+			{ y: WThursday,   label: Wday4 },
+			{ y: WFriday,     label: Wday5 },
+			{ y: WSaturday,   label: Wday6 },
+			{ y: WSunday,     label: Wday7 },
+		]
+	}]
+});
+chart.render();
+
 }
 </script>
 </head>
 <body>
 <div id="Hydration Level" style="height: 370px; width: 50%;"></div>
+<div id="Weight" style="height: 370px; width: 50%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
