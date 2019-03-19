@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Statistics Page</title>
+  </head>
+  <body>
+    <style media="screen">
+
+      #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
+        border: 5px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+
+      }
+
+    </style>
+    <div id="primary-paragraph">
+      <h2 class="primary-paragraph" >Check out your stats</h2>
+    <p>Below is an overview of your statistcs. Keep checking back to see where
+    you are at.</p>
+    </div>
+
+    <!-- Headings -->
+    <h1>Statistics</h1>
+
+    <!-- Paragraphs -->
+    <img src="https://source.unsplash.com/200x200/?gym" alt="Workout Image 2">
+
+    <p>
+      <a href="https://accounts.google.com/signin/v2/identifier?hl=en&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">Login with Google</a>
+      <!-- line Break -->
+      <!-- Horizontal Line/Rule -->
+      <hr>
+      <h3>Your Statistics</h3>
+      </p>
+
+      <form action="process.php">
+        <div id="first-name" >
+          <label for="first-name">First Name</label><br>
+          <input type="first-name" name="first-name" value="Donald">
+        </div>
+        <div id="last-name" ><br>
+          <label for="last-name">Last Name</label><br>
+          <input type="last-name" name="last-name" value="Duck">
+        </div>
+        <div id="weight" ><br>
+          <label for="weight">Weight in pounds(LB)</label><br>
+          <input type="weight" name="weight" value="200LB">
+        </div>
+        <div id="height" ><br>
+          <label for="height">Height in meters(M)</label><br>
+          <input type="height" name="height" value="1.87M">
+        </div>
+        <div id="hydration" ><br>
+          <label for="hydration">Hydration levels in liters(L)</label><br>
+          <input type="hydration" name="hydration" value="5 liters">
+        </div>
+        <div id="steps" ><br>
+          <label for="steps">Steps taken today</label><br>
+          <input type="steps" name="steps" value="77,777 steps">
+        </div>
+        <button type="reset">Reset</button>
+      </form>
+
+  </body>
+</html>
