@@ -11,6 +11,14 @@ WThursday=89
 WFriday=88
 WSaturday = 89
 WSunday = 88
+Wdaynum =0
+Wday1 ="Monday " + (Wdaynum+1)
+Wday2 ="Tuesday " + (Wdaynum+2)
+Wday3 ="Wednesday "+ (Wdaynum+3)
+Wday4 ="Thursday "+ (Wdaynum+4)
+Wday5 ="Friday "+ (Wdaynum+5)
+Wday6 ="Saturday "+(Wdaynum+6)
+Wday7 ="Sunday "+ (Wdaynum+7)
 
 var chart = new CanvasJS.Chart("Weight", {
 	animationEnabled: true,
@@ -24,16 +32,16 @@ var chart = new CanvasJS.Chart("Weight", {
 	data: [{        
 		type: "column",  
 		showInLegend: true, 
-		legendMarkerColor: "grey",
+		legendMarkerColor: "black",
 		legendText: "Days of the Week",
 		dataPoints: [      
-			{ y: WMonday, label: "Monday" },
-			{ y: WTuesday,  label: "Tuesday" },
-			{ y: WWednesday,  label: "Wednesday" },
-			{ y: WThursday,  label: "Thursday" },
-			{ y: WFriday,  label: "Friday" },
-			{ y: WSaturday, label: "Saturday" },
-			{ y: WSunday,  label: "Sunday" },
+			{ y: WMonday,     label: Wday1 },
+			{ y: WTuesday,    label: Wday2 },
+			{ y: WWednesday,  label: Wday3 },
+			{ y: WThursday,   label: Wday4 },
+			{ y: WFriday,     label: Wday5 },
+			{ y: WSaturday,   label: Wday6 },
+			{ y: WSunday,     label: Wday7 },
 		]
 	}]
 });
