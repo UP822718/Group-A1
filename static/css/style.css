@@ -18,7 +18,7 @@ body {
   width: 100vw;
   z-index: 0;
 }
-.login {
+.content {
   transition: all .2s ease-in-out;
   color: #FFF;
   position: absolute;
@@ -34,7 +34,7 @@ body {
   display: inline-block;
   width: 100%;
 }
-.login-form input[type="password"], input[type="text"], input[type="submit"] {
+input[type="password"], input[type="text"], input[type="submit"] {
   width: 25em;
   padding: 12px 20px;
   margin: 8px 0;
