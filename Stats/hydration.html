@@ -11,6 +11,14 @@ HThursday=0.5
 HFriday=1.5
 HSaturday = 1.4
 HSunday = 1.7
+daynum =0
+Hday1 ="Monday " + (daynum+1)
+Hday2 ="Tuesday " + (daynum+2)
+Hday3 ="Wednesday "+ (daynum+3)
+Hday4 ="Thursday "+ (daynum+4)
+Hday5 ="Friday "+ (daynum+5)
+Hday6 ="Saturday "+( daynum+6)
+Hday7 ="Sunday "+ (daynum+7)
 
 var chart = new CanvasJS.Chart("Hydration Level", {
 	animationEnabled: true,
@@ -27,13 +35,13 @@ var chart = new CanvasJS.Chart("Hydration Level", {
 		legendMarkerColor: "grey",
 		legendText: "Days of the Week",
 		dataPoints: [      
-			{ y: HMonday, label: "Monday" },
-			{ y: HTuesday,  label: "Tuesday" },
-			{ y: HWednesday,  label: "Wednesday" },
-			{ y: HThursday,  label: "Thursday" },
-			{ y: HFriday,  label: "Friday" },
-			{ y: HSaturday, label: "Saturday" },
-			{ y: HSunday,  label: "Sunday" },
+			{ y: HMonday, label: Hday1 },
+			{ y: HTuesday,  label: Hday2 },
+			{ y: HWednesday,  label: Hday3 },
+			{ y: HThursday,  label: Hday4 },
+			{ y: HFriday,  label: Hday5 },
+			{ y: HSaturday, label: Hday6 },
+			{ y: HSunday,  label: Hday7 },
 		]
 	}]
 });
