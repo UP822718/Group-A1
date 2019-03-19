@@ -101,6 +101,14 @@ let cThu = 2398 * 0.05
 let cFri = 765 * 0.05
 let cSat = 3876 * 0.05
 let cSun = 8654 * 0.05
+let cDaynum = 0
+let cDay1 ="Monday " + (cDaynum+1)
+let cDay2 ="Tuesday " + (cDaynum+2)
+let cDay3 ="Wednesday "+ (cDaynum+3)
+let cDay4 ="Thursday "+ (cDaynum+4)
+let cDay5 ="Friday "+ (cDaynum+5)
+let cDay6 ="Saturday "+(cDaynum+6)
+let cDay7 ="Sunday "+ (cDaynum+7)
 
 let cChart = new CanvasJS.Chart("calories", {
 	animationEnabled: true,
@@ -117,13 +125,13 @@ let cChart = new CanvasJS.Chart("calories", {
 		legendMarkerColor: "grey",
 		legendText: "Days of the Week",
 		dataPoints: [
-			{ y: cMon, label: "Monday" },
-			{ y: cTue,  label: "Tuesday" },
-			{ y: cWed,  label: "Wednesday" },
-			{ y: cThu,  label: "Thursday" },
-			{ y: cFri,  label: "Friday" },
-			{ y: cSat, label: "Saturday" },
-			{ y: cSun,  label: "Sunday" }
+			{ y: cMon, label: cDay1 },
+			{ y: cTue,  label: cDay2 },
+			{ y: cWed,  label: cDay3 },
+			{ y: cThu,  label: cDay4 },
+			{ y: cFri,  label: cDay5 },
+			{ y: cSat, label: cDay6 },
+			{ y: cSun,  label: cDay7 }
 		]
 	}]
 });
@@ -136,6 +144,14 @@ let sThu = 2398
 let sFri = 765
 let sSat = 3876
 let sSun = 8654
+let sDaynum = 0
+let sDay1 ="Monday " + (sDaynum+1)
+let sDay2 ="Tuesday " + (sDaynum+2)
+let sDay3 ="Wednesday "+ (sDaynum+3)
+let sDay4 ="Thursday "+ (sDaynum+4)
+let sDay5 ="Friday "+ (sDaynum+5)
+let sDay6 ="Saturday "+(sDaynum+6)
+let sDay7 ="Sunday "+ (sDaynum+7)
 
 let sChart = new CanvasJS.Chart("steps", {
 animationEnabled: true,
@@ -152,13 +168,13 @@ data: [{
 	legendMarkerColor: "grey",
 	legendText: "Days of the Week",
 	dataPoints: [
-		{ y: sMon, label: "Monday" },
-		{ y: sTue,  label: "Tuesday" },
-		{ y: sWed,  label: "Wednesday" },
-		{ y: sThu,  label: "Thursday" },
-		{ y: sFri,  label: "Friday" },
-		{ y: sSat, label: "Saturday" },
-		{ y: sSun,  label: "Sunday" }
+		{ y: sMon, label: sDay1 },
+		{ y: sTue,  label: sDay2 },
+		{ y: sWed,  label: sDay3 },
+		{ y: sThu,  label: sDay4 },
+		{ y: sFri,  label: sDay5 },
+		{ y: sSat, label: sDay6 },
+		{ y: sSun,  label: sDay7 }
 	]
 }]
 });
