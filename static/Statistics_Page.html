@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Statistics Page</title>
-  </head>
-  <body>
-    <style media="screen">
 
-      #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
-        border: 5px solid #ccc;
-        padding: 10px;
-        margin-bottom: 10px;
+<head>
+  <title>Statistics Page</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style media="screen">
 
-      }
+    #first-name, #last-name, #weight, #hours-of-exercise, #hydration, #steps, #primary-paragraph {
+          border: 5px solid #ccc;
+          padding: 10px;
+          margin-bottom: 10px;
 
-    </style>
+        }
+        .content{
+          top:0%;
+          overflow: scroll;
+          height:100%
+        }
+        .col1{
+          display: grid;
+           grid-template-columns: auto;
+           justify-content: center;
+        }
+
+      </style>
+
+
+</head>
+
+<body id="particles-js">
+  <canvas id="canvas"></canvas>
+  <script src="./js/particles.js"></script>
+  <script src="./js/particles-js.js"></script>
+  </section>
+
+  <section class ="content">
     <div id="primary-paragraph">
       <h2 class="primary-paragraph" >Check out your stats</h2>
     <p>Below is an overview of your statistcs. Keep checking back to see where
@@ -34,7 +55,7 @@
       <h3>Your Statistics</h3>
       </p>
 
-      <form action="process.php">
+    <form action="process.php">
         <div id="first-name" >
           <label for="first-name">First Name</label><br>
           <input type="first-name" name="first-name" value="Donald">
@@ -47,7 +68,7 @@
           <label for="weight">Weight in pounds(LB)</label><br>
           <input type="weight" name="weight" value="200LB">
         </div>
-        <div id="hours of exercise" ><br>
+        <div id="hours-of-exercise" ><br>
           <label for="hours of exercise">Total amount of exercise</label><br>
           <input type="hours of exercise" name="hours of exercise" value="7 Hours">
         </div>
@@ -64,6 +85,7 @@
       <div id="footer">
         <p>Copyright &copy; 2019</p>
       </div>
+  </section>
+</body>
 
-  </body>
 </html>
