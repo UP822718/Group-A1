@@ -1,83 +1,69 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Statistics Page</title>
+  </head>
+  <body>
+    <style media="screen">
 
-<head>
-  <title>Statistics Page</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <style media="screen">
+      #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
+        border: 5px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
 
-    #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
-          border: 5px solid #ccc;
-          padding: 10px;
-          margin-bottom: 10px;
+      }
 
-        }
-        .content{
-          top:0%;
-          overflow: scroll;
-          height:100%
-        }
-        .col1{
-          display: grid;
-           grid-template-columns: auto;
-           justify-content: center;
-        }
-
-      </style>
-</head>
-
-<body id="particles-js">
-  <canvas id="canvas"></canvas>
-  <script src="./js/particles.js"></script>
-  <script src="./js/particles-js.js"></script>
-  </section>
-
-  <section class ="content">
-  <!-- Headings -->
-  <h1>Statistics</h1>
-
-  <section id="primary-paragraph">
-    <h2 class="primary-paragraph">Check out your stats</h2>
+    </style>
+    <div id="primary-paragraph">
+      <h2 class="primary-paragraph" >Check out your stats</h2>
     <p>Below is an overview of your statistcs. Keep checking back to see where
-      you are at.</p>
-  <!-- Paragraphs -->
-  <img src="https://source.unsplash.com/200x200/?gym" alt="Workout Image 2">
+    you are at.</p>
+    </div>
 
-  <p>
-    <a href="https://accounts.google.com/signin/v2/identifier?hl=en&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">Login with Google</a>
-    <!-- line Break -->
-    <!-- Horizontal Line/Rule -->
-    <hr>
-    <h3>Your Statistics</h3>
-  </p>
-  <form action="process.php">
-    <section class="col1" id="first-name">
-      <label for="first-name">First Name</label>
-      <input type="text" name="first-name" value="Donald">
-    </section>
-    <section class="col1"  id="last-name">
-      <label for="last-name">Last Name</label>
-      <input type="text" name="last-name" value="Duck">
-    </section>
-    <section  class="col1" id="weight">
-      <label for="weight">Weight in pounds(LB)</label>
-      <input type="text" name="weight" value="200LB">
-    </section>
-    <section class="col1"  id="height">
-      <label for="height">Height in meters(M)</label>
-      <input type="text" name="height" value="1.87M">
-    </section>
-    <section  class="col1" id="hydration">
-      <label for="hydration">Hydration levels in liters(L)</label>
-      <input type="text" name="hydration" value="5 liters">
-    </section>
-    <section  class="col1" id="steps">
-      <label for="steps">Steps taken today</label>
-      <input type="text" name="steps" value="77,777 steps">
-    </section>
-    <button type="reset">Reset</button>
-  </form>
-</section>
-</body>
+    <!-- Headings -->
+    <h1>Statistics</h1>
 
+    <!-- Paragraphs -->
+    <img src="https://source.unsplash.com/200x200/?gym" alt="Workout Image 2">
+
+    <p>
+      <a href="https://accounts.google.com/signin/v2/identifier?hl=en&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">Login with Google</a>
+      <!-- line Break -->
+      <!-- Horizontal Line/Rule -->
+      <hr>
+      <h3>Your Statistics</h3>
+      </p>
+
+      <form action="process.php">
+        <div id="first-name" >
+          <label for="first-name">First Name</label><br>
+          <input type="first-name" name="first-name" value="Donald">
+        </div>
+        <div id="last-name" ><br>
+          <label for="last-name">Last Name</label><br>
+          <input type="last-name" name="last-name" value="Duck">
+        </div>
+        <div id="weight" ><br>
+          <label for="weight">Weight in pounds(LB)</label><br>
+          <input type="weight" name="weight" value="200LB">
+        </div>
+        <div id="height" ><br>
+          <label for="height">Height in meters(M)</label><br>
+          <input type="height" name="height" value="1.87M">
+        </div>
+        <div id="hydration" ><br>
+          <label for="hydration">Hydration levels in liters(L)</label><br>
+          <input type="hydration" name="hydration" value="5 liters">
+        </div>
+        <div id="steps" ><br>
+          <label for="steps">Steps taken today</label><br>
+          <input type="steps" name="steps" value="77,777 steps">
+        </div>
+        <button type="reset">Reset</button>
+      </form>
+      <div id="footer">
+        <p>Copyright &copy; 2019</p>
+      </div>
+
+  </body>
 </html>
