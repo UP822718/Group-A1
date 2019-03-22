@@ -18,4 +18,8 @@ Hydration
 Steps
 Calories
 
+# Developers
+UP879385 = stephenvane 
+UP836734 = MoHashan13
+
 
