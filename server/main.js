@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 const app = express();
 
-const connection = mysql.createConnection( { host: "localhost",user: "root",password: "" ,database: "login"} );
+const connection = mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "login"} );
 
 connection.connect(function(e) {
     if (e) {
