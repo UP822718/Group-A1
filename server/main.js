@@ -34,7 +34,7 @@ app.get('/profile', function(req,res) {
     }
     else {
         res.send(req.session.username);
-        console.log("Showing profile for user", req.session.username);
+        console.log("Showing profile for users", req.session.username);
     }
 });
 
@@ -43,7 +43,7 @@ app.post('/signup', authUser);
 
 async function authLogin(req,res) {
     const username = req.body.username;
-    let sql = 'SELECT * FROM user WHERE username = ?';
+    let sql = 'SELECT * FROM users WHERE username = ?';
 
     connection.query(sql, username, function(e, results) {
        if (e) {
@@ -74,7 +74,7 @@ async function authLogin(req,res) {
 }
 async function authUser(req,res) {
     const username = req.body.username;
-    let sql = 'SELECT * FROM user WHERE username = ?';
+    let sql = 'SELECT * FROM users WHERE username = ?';
 
     connection.query(sql, username, function(e, results) {
        if (e) {
@@ -87,7 +87,7 @@ async function authUser(req,res) {
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
-                 let sql = 'INSERT INTO user SET ?';
+                 let sql = 'INSERT INTO users SET ?';
                  let fields = {username:username, password:hash};
                  let query = connection.query(sql, fields, function(e, results) {
                      if (e) {
