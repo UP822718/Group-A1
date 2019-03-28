@@ -18,7 +18,7 @@ Hday5 ="Friday "+ (Hdaynum+5)
 Hday6 ="Saturday "+(Hdaynum+6)
 Hday7 ="Sunday "+ (Hdaynum+7)
 
-var chart = new CanvasJS.Chart("Hydration Level", {
+var chart = new CanvasJS.Chart("HydrationLevel", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
