@@ -87,8 +87,8 @@ async function authUser(req,res) {
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
-                 let sql = 'INSERT INTO users SET ?';
-                 let fields = {username:username, password:hash};
+                 let sql = 'INSERT INTO user (username,password) VALUES  ?';
+                 let fields = [username, password];
                  let query = connection.query(sql, fields, function(e, results) {
                      if (e) {
                        throw e;
