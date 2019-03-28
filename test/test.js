@@ -1,13 +1,6 @@
 const main = require('../server/main.js');
 const assert = require('assert');
 const puppeteer = require('puppeteer');
-let browser = {};
-let page = {};
-async function setup() {
-  browser = await puppeteer.launch();
-  page = await browser.newPage();
-  await page.goto('http://localhost:8080');
-}
 
 // describe('HTTP interface', function() {
 //   describe('signup', function() {
@@ -22,12 +15,20 @@ describe('Web interface', function() {
   describe('signup', function() {
     describe('invalid', function() {
       it("send back nothing", async function() {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto('http://localhost:8080');
+        await page.setRequestInterception(true);
+        page.on('request', request => {
+
+        });
         await page.evaluate(() => {
           document.documentElement.querySelector('#username').value = "";
           document.documentElement.querySelector('#password').value = "";
           document.documentElement.querySelector('#confirmPassword').value = "";
           document.documentElement.querySelector('#submit').click();
         });
+        await browser.close();
       });
       it("send back username only", async function() {
         await page.evaluate(() => {
