@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt');
 const app = express();
 
 const connection = mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "login"} );
-const connection2 = mysql.createConnection( {host: "localhost",user: "root",password: "root",database: "fitnessprofile"} );
 
 /**
  * connection - description
@@ -20,26 +19,9 @@ connection.connect(function(e) {
         throw e;
     }
     else {
-       console.log("Connection to login database established..");
+       console.log("Connection to database  established..");
     }
 });
-
-/**
- * connection2 - description
- *
- * @param  {type} function(e description
- * @return {type}            description
- */
-connection2.connect(function(e) {
-   if (e) {
-	throw e;
-   }
-   else {
-      console.log("Connection to fitnessprofile database established..");
-   }
-});
-
-
 
 app.use(express.urlencoded());
 app.use(express.static('./static'));
