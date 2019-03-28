@@ -1,9 +1,8 @@
 "use strict";
 const express = require('express');
+const session = require('express-session');
 const mysql = require('mysql2');
-const googleAuth = require('simple-google-openid');
 const bcrypt = require('bcrypt');
-let mysql2 = require('./database.js')
 
 const app = express();
 
@@ -20,12 +19,23 @@ connection.connect(function(e) {
 
 app.use(express.urlencoded());
 app.use(express.static('./static'));
+app.use(session({
+    secret: 'temp-secret',
+    resave: false,
+    saveUnitialized: false
+}));
 
 app.get('/', function(req,res) {
     response.redirect('./login.html');
 });
 app.get('/profile', function(req,res) {
-    res.send('You are logged in!');
+    if (!req.session || !req.session.authenticate) {
+        res.send("You're not Logged in");
+    }
+    else {
+        res.send(req.session.username);
+        console.log("Showing profile for users", req.session.username);
+    }
 });
 
 app.post('/login', authLogin);
@@ -33,7 +43,7 @@ app.post('/signup', authUser);
 
 async function authLogin(req,res) {
     const username = req.body.username;
-    let sql = 'SELECT * FROM user WHERE username = ?';
+    let sql = 'SELECT * FROM users WHERE username = ?';
 
     connection.query(sql, username, function(e, results) {
        if (e) {
@@ -44,6 +54,8 @@ async function authLogin(req,res) {
            bcrypt.compare(req.body.password, results[0].password, function(e,result) {
              if (result) {
                 console.log("Password Matches");
+                req.session.authenticate = true;
+                req.session.username = username;
                 res.redirect("/profile");
 
              }
@@ -62,7 +74,7 @@ async function authLogin(req,res) {
 }
 async function authUser(req,res) {
     const username = req.body.username;
-    let sql = 'SELECT * FROM user WHERE username = ?';
+    let sql = 'SELECT * FROM users WHERE username = ?';
 
     connection.query(sql, username, function(e, results) {
        if (e) {
@@ -75,9 +87,10 @@ async function authUser(req,res) {
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
-                 let sql = 'INSERT INTO user (username,password) VALUES  ?';
-                 let fields = [username, password];
+                 let sql = 'INSERT INTO user (username,password) VALUES  (?,?)';
+                 let fields = [username, hash];
                  let query = connection.query(sql, fields, function(e, results) {
+		console.log(e);
                      if (e) {
                        throw e;
                      }

@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <meta charset="utf-8">
-      <title>INSE Health App </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="google-signin-client_id" content="459698549662-5gfsku6hcrje631iebtjc0l01psourj3.apps.googleusercontent.com">
-      <link rel="stylesheet" href="./css/style.css">
-    </head>
+
+<head>
+  <title>INSE Health App </title>
+  <link rel="stylesheet" href="./css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css">
+  <style media="screen">
+    #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
+          border: 5px solid #ccc;
+          padding: 10px;
+          margin-bottom: 10px;
+
+        }
+        .content{
+          top:0%;
+          overflow: scroll;
+          height:100%
+        }
+        .col1{
+          display: grid;
+           grid-template-columns: auto;
+           justify-content: center;
+        }
+
+      </style>
+</head>
+  </section>
+  <section class ="content">
     <body id="particles-js">
       <canvas id="canvas"></canvas>
       <script src="./js/particles.js"></script>
@@ -24,5 +46,7 @@
           <input type="submit" name="submit">
           </div>
           <a href="./signup.html">Sign Up</a>
-     </body>
+  </section>
+</body>
+
 </html>
