@@ -9,7 +9,7 @@ async function sqlSetup() {
     for (let varsql of initDBsql.sql) {
      await connection.execute(varsql );
     }
-process.exit(0);
+//process.exit(0);
 }
 sqlSetup();
 
