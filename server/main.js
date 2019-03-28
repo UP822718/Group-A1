@@ -8,6 +8,12 @@ const app = express();
 
 const connection = mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "login"} );
 
+/**
+ * connection - description
+ *
+ * @param  {type} function(e description
+ * @return {type}            description
+ */
 connection.connect(function(e) {
     if (e) {
         throw e;
@@ -25,9 +31,26 @@ app.use(session({
     saveUnitialized: false
 }));
 
+/**
+ * app - description
+ *
+ * @param  {type} '/'          description
+ * @param  {type} function(req description
+ * @param  {type} res          description
+ * @return {type}              description
+ */
 app.get('/', function(req,res) {
     response.redirect('./login.html');
 });
+
+/**
+ * app - description
+ *
+ * @param  {type} '/profile'   description
+ * @param  {type} function(req description
+ * @param  {type} res          description
+ * @return {type}              description
+ */
 app.get('/profile', function(req,res) {
     if (!req.session || !req.session.authenticate) {
         res.send("You're not Logged in");
@@ -41,6 +64,14 @@ app.get('/profile', function(req,res) {
 app.post('/login', authLogin);
 app.post('/signup', authUser);
 
+
+/**
+ * authLogin - description
+ *
+ * @param  {type} req description
+ * @param  {type} res description
+ * @return {type}     description
+ */
 async function authLogin(req,res) {
     const username = req.body.username;
     let sql = 'SELECT * FROM users WHERE username = ?';
@@ -72,6 +103,14 @@ async function authLogin(req,res) {
        }
      });
 }
+
+/**
+ * authUser - description
+ *
+ * @param  {type} req description
+ * @param  {type} res description
+ * @return {type}     description
+ */
 async function authUser(req,res) {
     const username = req.body.username;
     let sql = 'SELECT * FROM users WHERE username = ?';
