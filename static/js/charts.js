@@ -1,8 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<script>
-
 window.onload = function () {
 Weight = 70
 ExcerciceHour = 1
@@ -181,13 +176,3 @@ data: [{
 sChart.render();
 
 }
-</script>
-</head>
-<body>
-<div id="Hydration Level" style="height: 370px; width: 50%;"></div>
-<div id="Weight" style="height: 370px; width: 50%;"></div>
-<div id="calories" style="height: 370px; width: 50%;"></div>
-<div id="stepsCount" style="height: 370px; width: 50%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</body>
-</html>
