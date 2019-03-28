@@ -7,15 +7,26 @@ const bcrypt = require('bcrypt');
 const app = express();
 
 const connection = mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "login"} );
+const connection2 = mysql.createConnection( {host: "localhost",user: "root",password: "root",database: "fitnessprofile"} );
 
 connection.connect(function(e) {
     if (e) {
         throw e;
     }
     else {
-       console.log("Connection to database established..");
+       console.log("Connection to login database established..");
     }
 });
+connection2.connect(function(e) {
+   if (e) {
+	throw e;
+   }
+   else {
+      console.log("Connection to fitnessprofile database established..");
+   }
+});
+
+
 
 app.use(express.urlencoded());
 app.use(express.static('./static'));
@@ -87,7 +98,7 @@ async function authUser(req,res) {
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
-                 let sql = 'INSERT INTO users (username,password) VALUES  ?';
+                 let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
                  let fields = [username, hash];
                  let query = connection.query(sql, fields, function(e, results) {
                      if (e) {
