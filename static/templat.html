@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <style media="screen">
 
-    #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
+    #first-name, #last-name, #weight, #hours-of-exercise, #hydration, #steps, #primary-paragraph {
           border: 5px solid #ccc;
           padding: 10px;
           margin-bottom: 10px;
@@ -19,6 +19,8 @@
         }
 
       </style>
+
+
 </head>
 
 <body id="particles-js">
@@ -28,6 +30,56 @@
   </section>
   <!-- stick you code in hare-->
   <section class ="content">
+    <div id="primary-paragraph">
+      <h2 class="primary-paragraph" >Check out your stats</h2>
+    <p>Below is an overview of your statistcs. Keep checking back to see where
+    you are at.</p>
+    </div>
+
+    <!-- Headings -->
+    <h1>Statistics</h1>
+
+    <!-- Paragraphs -->
+    <img src="https://source.unsplash.com/200x200/?gym" alt="Workout Image 2">
+
+    <p>
+      <a href="https://accounts.google.com/signin/v2/identifier?hl=en&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">Login with Google</a>
+      <!-- line Break -->
+      <!-- Horizontal Line/Rule -->
+      <hr>
+      <h3>Your Statistics</h3>
+      </p>
+
+    <form action="process.php">
+        <div id="first-name" >
+          <label for="first-name">First Name</label><br>
+          <input type="first-name" name="first-name" value="Donald">
+        </div>
+        <div id="last-name" ><br>
+          <label for="last-name">Last Name</label><br>
+          <input type="last-name" name="last-name" value="Duck">
+        </div>
+        <div id="weight" ><br>
+          <label for="weight">Weight in pounds(LB)</label><br>
+          <input type="weight" name="weight" value="200LB">
+        </div>
+        <div id="hours-of-exercise" ><br>
+          <label for="hours of exercise">Total amount of exercise</label><br>
+          <input type="hours of exercise" name="hours of exercise" value="7 Hours">
+        </div>
+        <div id="hydration" ><br>
+          <label for="hydration">Hydration levels in liters(L)</label><br>
+          <input type="hydration" name="hydration" value="5 liters">
+        </div>
+        <div id="steps" ><br>
+          <label for="steps">Steps taken today</label><br>
+          <input type="steps" name="steps" value="77,777 steps">
+        </div>
+        <button type="reset">Reset</button>
+      </form>
+      <div id="footer">
+        <p>Copyright &copy; 2019</p>
+      </div>
   </section>
 </body>
 
