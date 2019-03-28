@@ -3,6 +3,11 @@ let mysql2 = require('mysql2')
 let fs = require('fs');
 let initDBsql = require('./initDBsql.json');
 
+/**
+ * sqlSetup - description
+ *
+ * @return {type}  description
+ */
 async function sqlSetup() {
   const connection = await mysql2.createConnection({ host: "localhost",user: "root",password: "root"});
 
@@ -12,4 +17,3 @@ async function sqlSetup() {
 //process.exit(0);
 }
 sqlSetup();
-
