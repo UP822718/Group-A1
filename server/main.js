@@ -60,7 +60,7 @@ app.get('/profile', function(req,res) {
         /* if authenticated */
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
-        res.send(req.session.username, req.session.userID);
+        res.send(req.session.userID);
     }
 });
 
