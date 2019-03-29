@@ -155,7 +155,7 @@ async function authUser(req, res) {
   try {
       const [rows, fields] = await connection.execute(sql, username)
   } catch (err) {
-
+console.log(err);
   }
   if (rows.length > 0) {
      console.log("Username Already Exists");
@@ -168,6 +168,7 @@ async function authUser(req, res) {
            let query = await connection.execute(sql, fields);
          } catch (err) {
 
+           console.log(err);
          }
         //   if (e) {
         //     throw e;
