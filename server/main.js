@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
  * @param  {type} res          description
  * @return {type}              description
  */
-app.get('/profile',async function(req, res) {
+app.get('/profile', async function(req, res) {
   /* Authentication */
   if (!req.session || !req.session.authenticate) {
     res.sendStatus(401); // not authorized status
@@ -91,7 +91,12 @@ app.get('/profile',async function(req, res) {
     } catch (err) {
 
     }
-    res.render('Statistics_Page.html', {hydration: hydration, weight: weight, calories: calories, steps: steps});
+    res.render('Statistics_Page.html', {
+      hydration: hydration,
+      weight: weight,
+      calories: calories,
+      steps: steps
+    });
 
   }
 });
@@ -110,33 +115,29 @@ app.post('/add', addStat);
  * @return {type}     description
  */
 async function authLogin(req, res) {
-  const username = req.body.username;
-  let sql = 'SELECT * FROM users WHERE username = ?';
+const username = req.body.username;
+let sql = 'SELECT * FROM users WHERE username = ?';
+const [rows_userCheck, fields_userCheck, ] = await connection.query(sql, username);
+if (rows_userCheck.length > 0) {
+  bcrypt.compare(req.body.password, rows_userCheck[0].password, function(e, result) {
+    if (result) {
+      console.log("Password Matches");
+      req.session.authenticate = true;
+      req.session.userID = results[0].userID;
+      req.session.username = username;
+      res.redirect("/profile");
 
-  connection.query(sql, username, function(e, results) {
-    if (e) {
-      throw e;
     } else {
-      if (results.length > 0) {
-        bcrypt.compare(req.body.password, results[0].password, function(e, result) {
-          if (result) {
-            console.log("Password Matches");
-            req.session.authenticate = true;
-            req.session.userID = results[0].userID;
-            req.session.username = username;
-            res.redirect("/profile");
-
-          } else {
-            console.log("Password Doesn't Match");
-            res.redirect("/");
-          }
-        });
-      } else {
-        console.log("Username Doesnt match any Accounts");
-        res.redirect("/");
-      }
+      console.log("Password Doesn't Match");
+      res.redirect("/");
     }
   });
+} else {
+  console.log("Username Doesnt match any Accounts");
+  res.redirect("/");
+}
+}
+});
 }
 
 async function addStat(req, res) {}
