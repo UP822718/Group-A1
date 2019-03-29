@@ -21,6 +21,7 @@ app.use(express.static('static'));
 app.use(bodyParser.urlencoded({
   extend: true
 }));
+
 app.use(session({
   secret: 'temp-secret',
   resave: false,
@@ -35,9 +36,9 @@ app.use(session({
  * @param  {type} res          description
  * @return {type}              description
  */
-app.get('/', function(req, res) {
-  response.render('index');
-});
+// app.get('/', function(req, res) {
+//   // response.render('index');
+// });
 
 /**
  * app - description
@@ -57,7 +58,6 @@ app.get('/profile', async function(req, res) {
     /* get all values from DB*/
     console.log(req.session.userID);
     /*GET CURRENT STATS*/
-    let statsArray = [];
     /* GET HYDRATION */
     let sqlHydration = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
     let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
@@ -97,14 +97,11 @@ app.get('/profile', async function(req, res) {
       calories: calories,
       steps: steps
     });
-
   }
 });
-
 app.post('/login', authLogin);
 app.post('/signup', authUser);
 app.post('/add', addStat);
-
 
 
 /**
@@ -115,67 +112,60 @@ app.post('/add', addStat);
  * @return {type}     description
  */
 async function authLogin(req, res) {
-const username = req.body.username;
-let sql = 'SELECT * FROM users WHERE username = ?';
-const [rows_userCheck, fields_userCheck, ] = await connection.query(sql, username);
-if (rows_userCheck.length > 0) {
-  bcrypt.compare(req.body.password, rows_userCheck[0].password, function(e, result) {
-    if (result) {
-      console.log("Password Matches");
-      req.session.authenticate = true;
-      req.session.userID = results[0].userID;
-      req.session.username = username;
-      res.redirect("/profile");
+    const username = req.body.username;
+    let sql = 'SELECT * FROM users WHERE username = ?';
+    const [rows_userCheck, fields_userCheck, ] = await connection.query(sql, username);
+    if (rows_userCheck.length > 0) {
+      bcrypt.compare(req.body.password, rows_userCheck[0].password, function(e, result) {
+        if (result) {
+          console.log("Password Matches");
+          req.session.authenticate = true;
+          req.session.userID = results[0].userID;
+          req.session.username = username;
+          res.redirect("/profile");
 
-    } else {
-      console.log("Password Doesn't Match");
+        } else {
+          console.log("Password Doesn't Match");
+          res.redirect("/");
+        }
+      });
+  } else {
+      console.log("Username Doesnt match any Accounts");
       res.redirect("/");
     }
-  });
-} else {
-  console.log("Username Doesnt match any Accounts");
-  res.redirect("/");
 }
-}
-});
 
 
 async function addStat(req, res) {}
-/**
- * authUser - description
- *
- * @param  {type} req description
- * @param  {type} res description
- * @return {type}     description
- */
+// /**
+//  * authUser - description
+//  *
+//  * @param  {type} req description
+//  * @param  {type} res description
+//  * @return {type}     description
+//  */
 async function authUser(req, res) {
   const username = req.body.username;
   let sql = 'SELECT * FROM users WHERE username = ?';
 
-  connection.query(sql, username, function(e, results) {
-    if (e) {
-      throw e;
-    } else {
-      if (results.length > 0) {
-        console.log("Username Already Exists");
-        res.redirect("signup");
-      } else {
-        bcrypt.hash(req.body.password, 10, function(e, hash) {
-          let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
-          let fields = [username, hash];
-          let query = connection.query(sql, fields, function(e, results) {
-            if (e) {
-              throw e;
-            } else {
-              console.log("User Added to Database");
-              res.redirect("/");
-            }
-          });
-        });
-      }
-    }
-  });
+  connection.query(sql, username)
+  if (results.length > 0) {
+     console.log("Username Already Exists");
+     res.redirect("signup");
+  } else {
+    bcrypt.hash(req.body.password, 10, async function(e, hash) {
+         let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
+         let fields = [username, hash];
+         let query = await connection.execute(sql, fields);
+      //   //   if (e) {
+      //   //     throw e;
+      //   //   } else {
+      //   //     console.log("User Added to Database");
+      //   //     res.redirect("/");
+      //   //   }
+    });
+  }
 }
 
 
-app.listen(8080, console.log("Listening.."));
+app.listen(8080);
