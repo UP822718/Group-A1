@@ -44,7 +44,7 @@ app.set('views', __dirname);
  * @return {type}              description
  */
 app.get('/', function(req,res) {
-    response.render('static/index');
+    response.render('index');
 });
 
 /**
@@ -108,7 +108,7 @@ app.get('/profile', function(req,res) {
                 console.log(results);
               }
             });
-          res.render('static/Statistics_Page', {stats: statsArray});
+          res.render('Statistics_Page', {stats: statsArray});
     }
 });
 
