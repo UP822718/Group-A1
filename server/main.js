@@ -1,6 +1,5 @@
 "use strict";
 const express = require('express');
-const bodyParser = require('body-parser');
 const session = require('express-session');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
@@ -24,7 +23,7 @@ connection.connect(function(e) {
     }
 });
 
-app.use(bodyParser.json());
+app.use(express.urlencoded());
 app.use(express.static('./static'));
 app.use(session({
     secret: 'temp-secret',
