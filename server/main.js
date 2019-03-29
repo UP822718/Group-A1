@@ -33,7 +33,6 @@ app.use(session({
 }));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', '../static');
 
 /**
  * app - description
