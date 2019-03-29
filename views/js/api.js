@@ -1,27 +1,3 @@
-function setFirstName(name) {
-await fetch('/api/firstname', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/text',
-      'Content-Type': 'application/text'
-    },
-    body: name
-  });
-}
-
-function setLastName(name) {
-
-  await fetch('/api/lastname', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/text',
-        'Content-Type': 'application/text'
-      },
-      body: name
-    });
-}
-
-
 function setWeight(weight) {
   fetch('/api/weight', {
       method: 'POST',

@@ -23,14 +23,13 @@ connection.connect(function(e) {
        console.log("Connection to database established..");
     }
 });
-app.use(express.static('views'));
+app.use(express.static('static'));
 app.use(bodyParser.urlencoded({extend:true}));
 app.use(session({
     secret: 'temp-secret',
     resave: false,
     saveUnitialized: false
 }));
-app.set('view engine', 'ejs');
 
 /**
  * app - description
@@ -41,7 +40,7 @@ app.set('view engine', 'ejs');
  * @return {type}              description
  */
 app.get('/', function(req,res) {
-    response.render("index");
+    response.render('index');
 });
 
 /**
