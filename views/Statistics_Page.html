@@ -53,7 +53,9 @@
       <hr>
     </p>
       <section class="stats">
-         <%- JSON.stringify(stats) %>
+        <script>
+            let mystats = <%- JSON.stringify(stats) %>;
+        </script>
       </section>
     <form action="process.php">
         <div id="first-name" >
