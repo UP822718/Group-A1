@@ -7,12 +7,16 @@ const bcrypt = require('bcrypt');
 let connection = "";
 const app = express();
 async function mainSetup() {
+  try {
   connection = await mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
     database: "fitnessprofile"
   });
+  } catch (err) {
+console.log(err);
+  }
 }
 mainSetup()
 
