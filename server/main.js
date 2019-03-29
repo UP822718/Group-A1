@@ -42,7 +42,7 @@ app.set('view engine', 'html');
  * @return {type}              description
  */
 app.get('/', function(req,res) {
-    response.render('/index');
+    response.render('index');
 });
 
 /**
@@ -106,7 +106,7 @@ app.get('/profile', function(req,res) {
                 console.log(results);
               }
             });
-          res.render('/Statistics_Page', {stats: statsArray});
+          res.render('Statistics_Page', {stats: statsArray});
     }
 });
 
@@ -176,7 +176,7 @@ async function authUser(req,res) {
        else {
           if (results.length > 0) {
              console.log("Username Already Exists");
-             res.redirect("/signup");
+             res.redirect("signup");
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
