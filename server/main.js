@@ -23,7 +23,7 @@ connection.connect(function(e) {
        console.log("Connection to database established..");
     }
 });
-app.use(express.static('static'));
+app.use(express.static('views'));
 app.use(bodyParser.urlencoded({extend:true}));
 app.use(session({
     secret: 'temp-secret',
