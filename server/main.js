@@ -17,24 +17,15 @@ async function init() {
   });
 }
 
+let connection = {}
 init();
-/**
- * connection - description
- *
- * @param  {type} function(e description
- * @return {type}            description
- */
-// connection.connect(function(e) {
-//   if (e) {
-//     throw e;
-//   } else {
-//     console.log("Connection to database established..");
-//   }
-// });
-// app.use(express.static('views'));
-app.use(bodyParser.urlencoded({
-  extend: true
-}));
+async function init() {
+  console.log("test");
+connection = await mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "fitnessprofile"} );
+}
+
+app.use(express.static('views'));
+app.use(bodyParser.urlencoded({extend:true}));
 app.use(session({
   secret: 'temp-secret',
   resave: false,
@@ -171,4 +162,8 @@ async function authUser(req, res) {
   });
 }
 
+<<<<<<< HEAD
 app.listen(8080,  console.log("Listening.."));
+=======
+app.listen(8081, console.log("Listening.."));
+>>>>>>> 2913d2dae5e0b459bc9062a02bb8b6c7ce32a781
