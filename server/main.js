@@ -116,7 +116,7 @@ async function authLogin(req, res) {
     let sql = 'SELECT * FROM users WHERE username = ?';
     try {
 
-      const getuser = await connection.execute(sql, [username]);
+      const [rows] = await connection.execute(sql, [username]);
     } catch (err) {
 
       console.log(err);
