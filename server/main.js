@@ -71,10 +71,14 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
-             statsArray.push(results);
              console.log(results);
+             res.render('Statistics_Page', {stats: results});
+             /*
+             statsArray.push(results);
+             */
            }
          });
+         /*
          let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
          connection.query(sqlWeight, req.session.userID, function(e, results) {
             if (e) {
@@ -108,7 +112,7 @@ app.get('/profile', function(req,res) {
 
 
           res.render('Statistics_Page', {stats: statsArray});
-
+          */
     }
 });
 
