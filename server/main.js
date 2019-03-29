@@ -33,7 +33,7 @@ app.use(session({
 }));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', __dirname);
+app.set('views', ./static);
 
 /**
  * app - description
@@ -108,7 +108,7 @@ app.get('/profile', function(req,res) {
                 console.log(results);
               }
             });
-          res.render('Statistics_Page', {stats: statsArray});
+          res.render('./static/Statistics_Page', {stats: statsArray});
     }
 });
 
