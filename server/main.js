@@ -25,7 +25,6 @@ connection.connect(function(e) {
 });
 
 app.use(bodyParser.urlencoded({extend:true}));
-app.use(express.static('./static'));
 app.use(session({
     secret: 'temp-secret',
     resave: false,
