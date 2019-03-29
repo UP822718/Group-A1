@@ -58,7 +58,7 @@ app.get('/', function(req, res) {
  * @param  {type} res          description
  * @return {type}              description
  */
-app.get('/profile', function(req, res) {
+app.get('/profile',async function(req, res) {
   /* Authentication */
   if (!req.session || !req.session.authenticate) {
     res.sendStatus(401); // not authorized status
