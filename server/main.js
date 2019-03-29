@@ -59,7 +59,7 @@ app.get('/profile', function(req,res) {
     }
     else {
         /* if authenticated */
-        let statsArray = [];
+        //let statsArray = [];
 
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
@@ -72,10 +72,10 @@ app.get('/profile', function(req,res) {
            }
            else {
              /*hydration = results[0].hydrationValue;*/
-             statsArray.push(results[0].hydrationValue);
+             response.render(results[0].hydrationValue);
            }
          });
-
+         /*
          let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
          connection.query(sqlWeight, req.session.userID, function(e, results) {
             if (e) {
@@ -104,13 +104,8 @@ app.get('/profile', function(req,res) {
               }
             });
 
-          console.log(statsArray);
-          let hydration = statsArray[0];
-          let weight = statsArray[1];
-          let calories = statsArray[2];
-          let steps = statsArray[3];
-          console.log(hydration,weight,calories,steps);
           res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
+          */
     }
 });
 
