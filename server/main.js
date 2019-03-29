@@ -15,19 +15,8 @@ async function mainSetup() {
   });
 }
 mainSetup()
-/**
- * connection - description
- *
- * @param  {type} function(e description
- * @return {type}            description
- */
-connection.connect(function(e) {
-  if (e) {
-    throw e;
-  } else {
-    console.log("Connection to database established..");
-  }
-});
+
+
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({
   extend: true
