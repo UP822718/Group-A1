@@ -137,18 +137,18 @@ async function authLogin(req, res) {
 
 
 async function addStat(req, res) {}
-// /**
-//  * authUser - description
-//  *
-//  * @param  {type} req description
-//  * @param  {type} res description
-//  * @return {type}     description
-//  */
+/**
+ * authUser - description
+ *
+ * @param  {type} req description
+ * @param  {type} res description
+ * @return {type}     description
+ */
 async function authUser(req, res) {
   const username = req.body.username;
   let sql = 'SELECT * FROM users WHERE username = ?';
 
-  connection.query(sql, username)
+    const [rows_userCheck, fields_userCheck, ] = await connection.execute(sql, username)
   if (results.length > 0) {
      console.log("Username Already Exists");
      res.redirect("signup");
@@ -157,12 +157,12 @@ async function authUser(req, res) {
          let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
          let fields = [username, hash];
          let query = await connection.execute(sql, fields);
-      //   //   if (e) {
-      //   //     throw e;
-      //   //   } else {
-      //   //     console.log("User Added to Database");
-      //   //     res.redirect("/");
-      //   //   }
+        //   if (e) {
+        //     throw e;
+        //   } else {
+        //     console.log("User Added to Database");
+        //     res.redirect("/");
+        //   }
     });
   }
 }
