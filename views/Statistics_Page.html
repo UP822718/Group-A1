@@ -56,7 +56,15 @@
         <h1> MY STATS </h1>
         <ul> Hydration = <%=hydration%> </ul>
       </section>
-    <form action="/addStats">
+    <form action="/addStat">
+        <div id="first-name" >
+          <label for="first-name">First Name</label><br>
+          <input type="first-name" name="first-name" value="Donald">
+        </div>
+        <div id="last-name" ><br>
+          <label for="last-name">Last Name</label><br>
+          <input type="last-name" name="last-name" value="Duck">
+        </div>
         <div id="weight" ><br>
           <label for="weight">Weight in pounds(LB)</label><br>
           <input type="weight" name="weight" value="200LB">
@@ -76,14 +84,13 @@
         <button type="reset">Reset</button>
       </form>
 
-      <div>
+
       <script src="./js/charts.js"></script>
       <div id="HydrationLevel" style="height: 370px; width: 90%;"></div>
       <div id="Weight" style="height: 370px; width: 90%;"></div>
       <div id="calories" style="height: 370px; width: 90%;"></div>
       <div id="stepsCount" style="height: 370px; width: 90%;"></div>
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    </div>
 
 
       <div id="footer">
