@@ -32,7 +32,6 @@ app.use(session({
 }));
 
 app.set('view engine', 'ejs');
-app.set("views", "../views");
 /**
  * app - description
  *
@@ -107,7 +106,7 @@ app.get('/profile', function(req,res) {
               }
             });
 
-          res.render('Statistics_Page.html');
+          res.render('Statistics_Page');
 
     }
 });
