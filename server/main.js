@@ -19,7 +19,7 @@ connection.connect(function(e) {
         throw e;
     }
     else {
-       console.log("Connection to database  established..");
+       console.log("Connection to database established..");
     }
 });
 
