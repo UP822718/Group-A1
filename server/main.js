@@ -72,7 +72,8 @@ app.get('/profile', function(req,res) {
            }
            else {
              console.log(results);
-             res.render('Statistics_Page', {stat: results});
+             let hydrationStat = result.hydrationValue;
+             res.render('Statistics_Page', {stat: hydrationStat});
              /*
              statsArray.push(results);
              */
