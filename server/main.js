@@ -30,7 +30,6 @@ app.use(session({
     resave: false,
     saveUnitialized: false
 }));
-app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 /**
