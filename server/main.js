@@ -73,6 +73,7 @@ app.get('/profile', function(req,res) {
            else {
              console.log(results);
              let hydrationStat = results.hydrationValue;
+             console.log(hydrationStat);
              res.render('Statistics_Page', {stat: hydrationStat});
              /*
              statsArray.push(results);
