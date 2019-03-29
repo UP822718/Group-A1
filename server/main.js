@@ -2,27 +2,20 @@
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
+
+
 const bcrypt = require('bcrypt');
 
 const app = express();
 
-const connection = mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "fitnessprofile"} );
+let connection = {}
+init();
+async function init() {
+  console.log("test");
+connection = await mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "fitnessprofile"} );
+}
 
-/**
- * connection - description
- *
- * @param  {type} function(e description
- * @return {type}            description
- */
-connection.connect(function(e) {
-    if (e) {
-        throw e;
-    }
-    else {
-       console.log("Connection to database established..");
-    }
-});
 app.use(express.static('views'));
 app.use(bodyParser.urlencoded({extend:true}));
 app.use(session({
@@ -196,5 +189,4 @@ async function authUser(req,res) {
     });
 }
 
-
-app.listen(8080, console.log("Listening.."));
+app.listen(8081, console.log("Listening.."));
