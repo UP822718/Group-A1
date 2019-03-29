@@ -157,7 +157,7 @@ async function authUser(req, res) {
     console.log(getUser);
   } catch (err) {
   }
-  if (rows.length > 0) {
+  if (getUser[0].length > 0) {
      console.log("Username Already Exists");
      res.redirect("signup");
   } else {
