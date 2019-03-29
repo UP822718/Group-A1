@@ -31,6 +31,8 @@ app.use(session({
     saveUnitialized: false
 }));
 
+app.set('view engine', 'ejs');
+app.set("views", "../views");
 /**
  * app - description
  *
