@@ -72,7 +72,7 @@ app.get('/profile', function(req,res) {
            }
            else {
              console.log(results);
-             res.render('Statistics_Page', {stats: results});
+             res.render('Statistics_Page', {stat: results});
              /*
              statsArray.push(results);
              */
