@@ -2,8 +2,7 @@
 "sql":[
 "CREATE DATABASE IF NOT EXISTS fitnessprofile;"
 ,
-"CREATE TABLE IF NOT EXISTS fitnessprofile.users (  userID INT NOT NULL AUTO_INCREMENT,  username VARCHAR(15) NOT NULL,  password VARCHAR(60) NOT NULL,  PRIMARY KEY (userID));",
-"CREATE TABLE IF NOT EXISTS fitnessprofile.Hydration (  hydrationID INT NOT NULL AUTO_INCREMENT,  hydrationUser INT NOT NULL, hydrationDate DATE NOT NULL,  HydrationValue DOUBLE NOT NULL,  PRIMARY KEY (hydrationID), FOREIGN KEY (hydrationUser) REFERENCES fitnessprofile.users(userID);"
+"CREATE TABLE IF NOT EXISTS fitnessprofile.users (  userID INT NOT NULL AUTO_INCREMENT,  username VARCHAR(15) NOT NULL,  password VARCHAR(60) NOT NULL,  PRIMARY KEY (userID));"
 
 ]
 }
