@@ -104,10 +104,12 @@ app.get('/profile', function(req,res) {
               }
             });
 
+          console.log(statsArray);
           let hydration = statsArray[0];
           let weight = statsArray[1];
           let calories = statsArray[2];
           let steps = statsArray[3];
+          console.log(hydration,weight,calories,steps);
           res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
     }
 });
