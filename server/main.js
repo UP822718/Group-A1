@@ -41,7 +41,7 @@ app.set('view engine', 'ejs');
  * @return {type}              description
  */
 app.get('/', function(req,res) {
-    response.render('index');
+    response.render("index");
 });
 
 /**
