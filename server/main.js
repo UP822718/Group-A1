@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extend:true}));
 app.use(session({
     secret: 'temp-secret',
     resave: false,
-    saveUnitialized: false
+    saveUninitialized: false
 }));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
