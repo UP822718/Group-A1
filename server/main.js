@@ -1,6 +1,7 @@
 "use strict";
 const express = require('express');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 
@@ -23,13 +24,16 @@ connection.connect(function(e) {
     }
 });
 
-app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({extend:true}));
 app.use(express.static('./static'));
 app.use(session({
     secret: 'temp-secret',
     resave: false,
     saveUnitialized: false
 }));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.set('views', dirname);
 
 /**
  * app - description
@@ -40,7 +44,7 @@ app.use(session({
  * @return {type}              description
  */
 app.get('/', function(req,res) {
-    response.redirect('./login.html');
+    response.render('static/index');
 });
 
 /**
@@ -61,6 +65,8 @@ app.get('/profile', function(req,res) {
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
         console.log(req.session.userID);
+        /*GET CURRENT STATS*/
+        let statsArray = [];
         /* GET HYDRATION */
         let sqlHydration = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
         connection.query(sqlHydration, req.session.userID, function(e, results) {
@@ -68,6 +74,7 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
+             statsArray.push(results);
              console.log(results);
            }
          });
@@ -77,6 +84,7 @@ app.get('/profile', function(req,res) {
               throw e;
             }
             else {
+              statsArray.push(results);
               console.log(results);
             }
           });
@@ -86,6 +94,7 @@ app.get('/profile', function(req,res) {
                throw e;
              }
              else {
+               statsArray.push(results);
                console.log(results);
              }
            });
@@ -95,10 +104,11 @@ app.get('/profile', function(req,res) {
                 throw e;
               }
               else {
+                statsArray.push(results);
                 console.log(results);
               }
             });
-          res.render('Statistics_Page.html');
+          res.render('static/Statistics_Page', {stats: statsArray});
     }
 });
 
@@ -168,7 +178,7 @@ async function authUser(req,res) {
        else {
           if (results.length > 0) {
              console.log("Username Already Exists");
-             res.redirect("/signup.html");
+             res.redirect("static/signup");
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
