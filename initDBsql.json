@@ -3,7 +3,9 @@
 "CREATE DATABASE IF NOT EXISTS fitnessprofile;"
 ,
 "CREATE TABLE IF NOT EXISTS fitnessprofile.users (  userID INT NOT NULL AUTO_INCREMENT,  username VARCHAR(15) NOT NULL,  password VARCHAR(60) NOT NULL,  PRIMARY KEY (userID));",
-"CREATE TABLE IF NOT EXISTS fitnessprofile.hydration (  hydrationID INT NOT NULL AUTO_INCREMENT,  userID INT, hydrationValue INT, hydrationDate DATE,  PRIMARY KEY (hydrationID), CONSTRAINT FK_hydrationUser FOREIGN KEY (userID) REFERENCES users(userID));"
-
+"CREATE TABLE IF NOT EXISTS fitnessprofile.hydration (  hydrationID INT NOT NULL AUTO_INCREMENT,  userID INT, hydrationValue INT, hydrationDate DATE,  PRIMARY KEY (hydrationID), CONSTRAINT FK_hydrationUser FOREIGN KEY (userID) REFERENCES users(userID));",
+"CREATE TABLE IF NOT EXISTS fitnessprofile.weight (  weightID INT NOT NULL AUTO_INCREMENT,  userID INT, weightValue INT, weightDate DATE,  PRIMARY KEY (weightID), CONSTRAINT FK_weightUser FOREIGN KEY (userID) REFERENCES users(userID));",
+"CREATE TABLE IF NOT EXISTS fitnessprofile.calories (  caloriesID INT NOT NULL AUTO_INCREMENT,  userID INT, caloriesValue INT, caloriesDate DATE,  PRIMARY KEY (caloriesID), CONSTRAINT FK_caloriesUser FOREIGN KEY (userID) REFERENCES users(userID));",
+"CREATE TABLE IF NOT EXISTS fitnessprofile.steps (  stepsID INT NOT NULL AUTO_INCREMENT,  userID INT, stepsValue INT, stepsDate DATE,  PRIMARY KEY (stepsID), CONSTRAINT FK_stepsUser FOREIGN KEY (userID) REFERENCES users(userID));"
 ]
 }
