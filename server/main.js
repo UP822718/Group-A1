@@ -31,7 +31,7 @@ app.use(session({
     saveUnitialized: false
 }));
 app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 /**
  * app - description
