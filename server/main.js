@@ -116,13 +116,12 @@ async function authLogin(req, res) {
     let sql = 'SELECT * FROM users WHERE username = ?';
     try {
 
-      const [rows] = await connection.execute(sql, [username]);
+      const rows = await connection.execute(sql, [username]);
     } catch (err) {
 
       console.log(err);
     }
-
-          console.log(rows);
+    console.log(rows);
     if (rows.length > 0) {
       bcrypt.compare(req.body.password, rows[0].password, function(e, result) {
         if (result) {
