@@ -72,7 +72,7 @@ app.get('/profile', function(req,res) {
            }
            else {
              /*hydration = results[0].hydrationValue;*/
-             res.render('Statistics_Page', {hydration: results[0].hydrationValue);
+             res.render('Statistics_Page', {hydration: results[0].hydrationValue});
            }
          });
          /*
