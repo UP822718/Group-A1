@@ -14,7 +14,7 @@ async function mainSetup() {
     database: "fitnessprofile"
   });
 }
-await mainSetup()
+mainSetup()
 /**
  * connection - description
  *
