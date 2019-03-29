@@ -52,17 +52,22 @@ app.get('/', function(req,res) {
  * @return {type}              description
  */
 app.get('/profile', function(req,res) {
+    /* Authentication */
     if (!req.session || !req.session.authenticate) {
-        res.send("You're not Logged in");
+        res.sendStatus(401); // not authorized status
     }
     else {
-        res.send(req.session.username);
+        /* if authenticated */
         console.log("Showing profile for users", req.session.username);
+        /* get all values from DB*/
+        res.send(req.session.username, req.session.userID);
     }
 });
 
 app.post('/login', authLogin);
 app.post('/signup', authUser);
+app.post('/add', addStat);
+
 
 
 /**
@@ -86,6 +91,7 @@ async function authLogin(req,res) {
              if (result) {
                 console.log("Password Matches");
                 req.session.authenticate = true;
+                req.session.userID = results[0].userID;
                 req.session.username = username;
                 res.redirect("/profile");
 
