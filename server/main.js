@@ -59,6 +59,11 @@ app.get('/profile', function(req,res) {
     }
     else {
         /* if authenticated */
+        let hydration = 0;
+        let weight = 0;
+        let calories = 0;
+        let steps = 0;
+
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
         console.log(req.session.userID);
@@ -71,24 +76,17 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
-             console.log(results[0]);
-             let hydrationStat = results[0].hydrationValue;
-             console.log(hydrationStat);
-             res.render('Statistics_Page', {stat: hydrationStat});
-             /*
-             statsArray.push(results);
-             */
+             hydration = results[0].hydrationValue;
            }
          });
-         /*
+
          let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
          connection.query(sqlWeight, req.session.userID, function(e, results) {
             if (e) {
               throw e;
             }
             else {
-              statsArray.push(results);
-              console.log(results);
+              weight = results[0].weightValue;
             }
           });
           let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
@@ -97,8 +95,7 @@ app.get('/profile', function(req,res) {
                throw e;
              }
              else {
-               statsArray.push(results);
-               console.log(results);
+               calories = results[0].caloriesValue;
              }
            });
            let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
@@ -107,14 +104,13 @@ app.get('/profile', function(req,res) {
                 throw e;
               }
               else {
-                statsArray.push(results);
-                console.log(results);
+                steps = results[0].stepsValue;
               }
             });
 
 
-          res.render('Statistics_Page', {stats: statsArray});
-          */
+          res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
+
     }
 });
 
