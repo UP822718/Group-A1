@@ -33,7 +33,7 @@ app.use(session({
 }));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', ./static);
+app.set('views', '../static');
 
 /**
  * app - description
@@ -108,7 +108,7 @@ app.get('/profile', function(req,res) {
                 console.log(results);
               }
             });
-          res.render('./static/Statistics_Page', {stats: statsArray});
+          res.render('Statistics_Page', {stats: statsArray});
     }
 });
 
@@ -178,7 +178,7 @@ async function authUser(req,res) {
        else {
           if (results.length > 0) {
              console.log("Username Already Exists");
-             res.redirect("static/signup");
+             res.redirect("signup");
           }
           else {
              bcrypt.hash(req.body.password, 10, function(e, hash) {
