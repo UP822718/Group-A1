@@ -138,7 +138,7 @@ if (rows_userCheck.length > 0) {
 }
 }
 });
-}
+
 
 async function addStat(req, res) {}
 /**
