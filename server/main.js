@@ -62,8 +62,8 @@ app.get('/profile', function(req,res) {
         /* get all values from DB*/
         console.log(req.session.userID);
         /* GET HYDRATION */
-        let sql = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
-        connection.query(sql, req.session.userID, function(e, results) {
+        let sqlHydration = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
+        connection.query(sqlHydration, req.session.userID, function(e, results) {
            if (e) {
              throw e;
            }
@@ -71,8 +71,8 @@ app.get('/profile', function(req,res) {
              console.log(results);
            }
          });
-         let sql = 'SELECT weightValue FROM weight WHERE userID = ?';
-         connection.query(sql, req.session.userID, function(e, results) {
+         let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
+         connection.query(sqlWeight, req.session.userID, function(e, results) {
             if (e) {
               throw e;
             }
@@ -80,8 +80,8 @@ app.get('/profile', function(req,res) {
               console.log(results);
             }
           });
-          let sql = 'SELECT caloriesValue FROM calories WHERE userID = ?';
-          connection.query(sql, req.session.userID, function(e, results) {
+          let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
+          connection.query(sqlCalories, req.session.userID, function(e, results) {
              if (e) {
                throw e;
              }
@@ -89,8 +89,8 @@ app.get('/profile', function(req,res) {
                console.log(results);
              }
            });
-           let sql = 'SELECT stepsValue FROM steps WHERE userID = ?';
-           connection.query(sql, req.session.userID, function(e, results) {
+           let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
+           connection.query(sqlSteps, req.session.userID, function(e, results) {
               if (e) {
                 throw e;
               }
