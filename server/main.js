@@ -162,8 +162,4 @@ async function authUser(req, res) {
   });
 }
 
-<<<<<<< HEAD
 app.listen(8080,  console.log("Listening.."));
-=======
-app.listen(8081, console.log("Listening.."));
->>>>>>> 2913d2dae5e0b459bc9062a02bb8b6c7ce32a781
