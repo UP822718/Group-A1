@@ -147,8 +147,11 @@ async function addStat(req, res) {}
 async function authUser(req, res) {
   const username = req.body.username;
   let sql = 'SELECT * FROM users WHERE username = ?';
+  try {
+      const [rows_userCheck, fields_userCheck, ] = await connection.execute(sql, username)
+  } catch (err) {
 
-    const [rows_userCheck, fields_userCheck, ] = await connection.execute(sql, username)
+  }
   if (results.length > 0) {
      console.log("Username Already Exists");
      res.redirect("signup");
@@ -156,7 +159,11 @@ async function authUser(req, res) {
     bcrypt.hash(req.body.password, 10, async function(e, hash) {
          let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
          let fields = [username, hash];
-         let query = await connection.execute(sql, fields);
+         try {
+           let query = await connection.execute(sql, fields);
+         } catch (err) {
+
+         }
         //   if (e) {
         //     throw e;
         //   } else {
