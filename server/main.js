@@ -30,8 +30,8 @@ app.use(session({
     resave: false,
     saveUnitialized: false
 }));
-
-app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 /**
  * app - description
  *
