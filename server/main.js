@@ -104,7 +104,9 @@ app.get('/profile', function(req,res) {
                 console.log(results);
               }
             });
-          res.render('Statistics_Page', {stats: statsArray});
+
+          res.render('Statistics_Page');
+
     }
 });
 

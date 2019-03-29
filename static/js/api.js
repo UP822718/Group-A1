@@ -1,46 +1,46 @@
-function setWeight(weight) {
+function setWeight(weightValue) {
   fetch('/api/weight', {
       method: 'POST',
       headers: {
         'Accept': 'application/text',
         'Content-Type': 'application/text'
       },
-      body: weight
+      body: weightValue
     });
 
 }
 
-function setHeight(height) {
+function setHeight(heightValue) {
   fetch('/api/height', {
       method: 'POST',
       headers: {
         'Accept': 'application/text',
         'Content-Type': 'application/text'
       },
-      body: height
+      body: heightValue
     });
 
 }
 
-function setHydration(liter) {
+function setHydration(hydrationValue) {
   fetch('/api/hydration', {
       method: 'POST',
       headers: {
         'Accept': 'application/text',
         'Content-Type': 'application/text'
       },
-      body: liter
+      body: hydrationValue
     });
 
 }
-function setStepsTaken(steps) {
+function setStepsTaken(stepsValue) {
   fetch('/api/stepstake', {
       method: 'POST',
       headers: {
         'Accept': 'application/text',
         'Content-Type': 'application/text'
       },
-      body: steps
+      body: stepsValue
     });
 
 }
