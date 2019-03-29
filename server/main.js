@@ -64,8 +64,6 @@ app.get('/profile', function(req,res) {
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
         console.log(req.session.userID);
-        /*GET CURRENT STATS*/
-        let statsArray = [];
         /* GET HYDRATION */
         let sqlHydration = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
         connection.query(sqlHydration, req.session.userID, function(e, results) {
