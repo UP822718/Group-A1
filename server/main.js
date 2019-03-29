@@ -153,9 +153,9 @@ async function authUser(req, res) {
   const username = req.body.username;
   let sql = 'SELECT * FROM users WHERE username = ?';
   try {
-      const [rows, fields] = await connection.execute(sql, username)
+      const getUser = await connection.execute(sql, username)
+    console.log(getUser);
   } catch (err) {
-console.log(err);
   }
   if (rows.length > 0) {
      console.log("Username Already Exists");
