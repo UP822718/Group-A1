@@ -61,7 +61,16 @@ app.get('/profile', function(req,res) {
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
         console.log(req.session.userID);
-        res.send(req.session.username);
+        let sql = 'SELECT * FROM hydration WHERE userID = ?';
+        connection.query(sql, req.session.userID, function(e, results) {
+           if (e) {
+             throw e;
+           }
+           else {
+             console.log(results);
+           }
+         });
+        res.json();
     }
 });
 
