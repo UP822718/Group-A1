@@ -110,6 +110,8 @@ async function authLogin(req,res) {
      });
 }
 
+async function addStat(req,res) {
+}
 /**
  * authUser - description
  *
