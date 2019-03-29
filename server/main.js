@@ -121,7 +121,7 @@ async function authLogin(req, res) {
 
     }
     if (rows.length > 0) {
-      bcrypt.compare(req.body.password, rows_userCheck[0].password, function(e, result) {
+      bcrypt.compare(req.body.password, rows[0].password, function(e, result) {
         if (result) {
           console.log("Password Matches");
           req.session.authenticate = true;
