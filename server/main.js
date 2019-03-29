@@ -121,6 +121,8 @@ async function authLogin(req, res) {
 
       console.log(err);
     }
+
+          console.log(rows);
     if (rows.length > 0) {
       bcrypt.compare(req.body.password, rows[0].password, function(e, result) {
         if (result) {
