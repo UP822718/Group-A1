@@ -105,7 +105,7 @@ app.get('/profile', function(req,res) {
               }
             });
 
-          res.render('Statistics_Page');
+          res.render('Statistics_Page.html');
 
     }
 });
