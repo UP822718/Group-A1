@@ -59,10 +59,7 @@ app.get('/profile', function(req,res) {
     }
     else {
         /* if authenticated */
-        let hydration = 0;
-        let weight = 0;
-        let calories = 0;
-        let steps = 0;
+        let statsArray = [];
 
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
@@ -76,7 +73,8 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
-             hydration = results[0].hydrationValue;
+             /*hydration = results[0].hydrationValue;*/
+             statsArray.push(results[0].hydrationValue);
            }
          });
 
@@ -86,7 +84,7 @@ app.get('/profile', function(req,res) {
               throw e;
             }
             else {
-              weight = results[0].weightValue;
+              statsArray.push(results[0].weightValue);
             }
           });
           let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
@@ -95,7 +93,7 @@ app.get('/profile', function(req,res) {
                throw e;
              }
              else {
-               calories = results[0].caloriesValue;
+               statsArray.push(results[0].caloriesValue);
              }
            });
            let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
@@ -104,13 +102,15 @@ app.get('/profile', function(req,res) {
                 throw e;
               }
               else {
-                steps = results[0].stepsValue;
+                statsArray.push(results[0].stepsValue);
               }
             });
 
-
+          let hydration = statsArray[0];
+          let weight = statsArray[1];
+          let calories = statsArray[2];
+          let steps = statsArray[3];
           res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
-
     }
 });
 
