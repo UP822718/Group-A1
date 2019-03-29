@@ -116,7 +116,7 @@ async function authLogin(req, res) {
     let sql = 'SELECT * FROM users WHERE username = ?';
     try {
 
-      const getuser = await connection.execute(sql, username);
+      const getuser = await connection.execute(sql, [username]);
     } catch (err) {
 
     }
@@ -154,7 +154,7 @@ async function authUser(req, res) {
   const username = req.body.username;
   let sql = 'SELECT * FROM users WHERE username = ?';
   try {
-      const getUser = await connection.execute(sql, username)
+      const getUser = await connection.execute(sql, [username])
   } catch (err) {
   }
 console.log(getUser);
@@ -166,7 +166,7 @@ console.log(getUser);
          let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
          let fields = [username, hash];
          try {
-           let query = await connection.execute(sql, fields);
+           let query = await connection.execute(sql, [fields]);
          } catch (err) {
 
            console.log(err);
