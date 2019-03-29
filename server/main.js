@@ -114,7 +114,12 @@ app.post('/add', addStat);
 async function authLogin(req, res) {
     const username = req.body.username;
     let sql = 'SELECT * FROM users WHERE username = ?';
-    const [rows_userCheck, fields_userCheck, ] = await connection.query(sql, username);
+    try {
+
+      const [rows_userCheck, fields_userCheck, ] = await connection.query(sql, username);
+    } catch (err) {
+
+    }
     if (rows_userCheck.length > 0) {
       bcrypt.compare(req.body.password, rows_userCheck[0].password, function(e, result) {
         if (result) {
