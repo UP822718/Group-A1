@@ -17,16 +17,15 @@ describe('Web interface', function() {
       it("send back nothing", async function() {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto('http://localhost:8080');
-        await page.setRequestInterception(true);
-        page.on('request', request => {
-
-        });
+        await page.goto('http://localhost:8080/signup');
         await page.evaluate(() => {
           document.documentElement.querySelector('#username').value = "";
           document.documentElement.querySelector('#password').value = "";
           document.documentElement.querySelector('#confirmPassword').value = "";
-          document.documentElement.querySelector('#submit').click();
+          const [response] = await Promise.all([
+            page.waitForNavigation(),
+            document.documentElement.querySelector('#submit').click()
+          ]);
         });
         await browser.close();
       });
