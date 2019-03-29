@@ -2,15 +2,6 @@ const main = require('../server/main.js');
 const assert = require('assert');
 const puppeteer = require('puppeteer');
 
-// describe('HTTP interface', function() {
-//   describe('signup', function() {
-//
-//   });
-//   describe('Login', function() {
-//
-//   });
-// });
-
 describe('Web interface', function() {
   describe('signup', function() {
     describe('invalid', function() {
@@ -18,75 +9,31 @@ describe('Web interface', function() {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto('http://localhost:8080/signup');
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "";
-          document.documentElement.querySelector('#password').value = "";
-          document.documentElement.querySelector('#confirmPassword').value = "";
+        let response = await page.evaluate(async function()  {
           const [response] = await Promise.all([
             page.waitForNavigation(),
             document.documentElement.querySelector('#submit').click()
           ]);
+          return response;
         });
+        console.log(response);
         await browser.close();
       });
-      it("send back username only", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "test";
-          document.documentElement.querySelector('#password').value = "";
-          document.documentElement.querySelector('#confirmPassword').value = "";
-          document.documentElement.querySelector('#submit').click();
-        });
+      it("send back username only", async function() {});
       });
-      it("send back password only", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "";
-          document.documentElement.querySelector('#password').value = "test";
-          document.documentElement.querySelector('#confirmPassword').value = "";
-          document.documentElement.querySelector('#submit').click();
-        });
+      it("send back password only", async function() {});
       });
-      it("send back confirm confirm Password only", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "";
-          document.documentElement.querySelector('#password').value = "";
-          document.documentElement.querySelector('#confirmPassword').value = "test";
-          document.documentElement.querySelector('#submit').click();
-        });
+      it("send back confirm confirm Password only", async function() {});
       });
-      it("send back confirm confirm Password and Password  only", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "";
-          document.documentElement.querySelector('#password').value = "test";
-          document.documentElement.querySelector('#confirmPassword').value = "test";
-          document.documentElement.querySelector('#submit').click();
-        });
+      it("send back confirm confirm Password and Password  only", async function() {});
       });
-      it("send back confirm confirm Password and username  only", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "test";
-          document.documentElement.querySelector('#password').value = "test";
-          document.documentElement.querySelector('#confirmPassword').value = "";
-          document.documentElement.querySelector('#submit').click();
-        });
+      it("send back confirm confirm Password and username  only",async function() {});
       });
-      it("send back confirm confirm confirm Password and username  only", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "test";
-          document.documentElement.querySelector('#password').value = "";
-          document.documentElement.querySelector('#confirmPassword').value = "test";
-          document.documentElement.querySelector('#submit').click();
-        });
+      it("send back confirm confirm confirm Password and username  only", async function() {});
       });
     });
     describe('valid', function() {
-      it("send back password and username", async function() {
-        await page.evaluate(() => {
-          document.documentElement.querySelector('#username').value = "test";
-          document.documentElement.querySelector('#password').value = "test";
-          document.documentElement.querySelector('#confirmPassword').value = "test";
-          document.documentElement.querySelector('#submit').click();
-        });
-      });
+      it("send back password and username", async function() {});
     });
   });
   describe('Login', function() {
