@@ -8,14 +8,14 @@ let connection = "";
 const app = express();
 async function mainSetup() {
   try {
-  connection = await mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "fitnessprofile"
-  });
+    connection = await mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "root",
+      database: "fitnessprofile"
+    });
   } catch (err) {
-console.log(err);
+    console.log(err);
   }
 }
 mainSetup()
@@ -116,34 +116,34 @@ app.post('/add', addStat);
  * @return {type}     description
  */
 async function authLogin(req, res) {
-    const username = req.body.username;
-    let sql = 'SELECT * FROM users WHERE username = ?';
-    try {
+  const username = req.body.username;
+  let sql = 'SELECT * FROM users WHERE username = ?';
+  try {
 
-      const rows = await connection.execute(sql, [username]);
-    } catch (err) {
-
-      console.log(err);
-    }
+    let rows = await connection.execute(sql, [username]);
     console.log(rows);
-    if (rows.length > 0) {
-      bcrypt.compare(req.body.password, rows[0].password, function(e, result) {
-        if (result) {
-          console.log("Password Matches");
-          req.session.authenticate = true;
-          req.session.userID = results[0].userID;
-          req.session.username = username;
-          res.redirect("/profile");
+  } catch (err) {
 
-        } else {
-          console.log("Password Doesn't Match");
-          res.redirect("/");
-        }
-      });
+    console.log(err);
+  }
+  if (rows.length > 0) {
+    bcrypt.compare(req.body.password, rows[0].password, function(e, result) {
+      if (result) {
+        console.log("Password Matches");
+        req.session.authenticate = true;
+        req.session.userID = results[0].userID;
+        req.session.username = username;
+        res.redirect("/profile");
+
+      } else {
+        console.log("Password Doesn't Match");
+        res.redirect("/");
+      }
+    });
   } else {
-      console.log("Username Doesnt match any Accounts");
-      res.redirect("/");
-    }
+    console.log("Username Doesnt match any Accounts");
+    res.redirect("/");
+  }
 }
 
 
@@ -157,31 +157,32 @@ async function addStat(req, res) {}
  */
 async function authUser(req, res) {
   const username = req.body.username;
-  let sql = 'SELECT * FROM users WHERE username = ?';
+  let sql = 'SELECT * FROM `users` WHERE `username` = ?';
+    const rows = await connection.execute(sql, username)
   try {
-      const getUser = await connection.execute(sql, [username])
   } catch (err) {
+    console.log(err);
   }
-console.log(getUser);
-  if (getUser[0].length > 0) {
-     console.log("Username Already Exists");
-     res.redirect("signup");
+  console.log(rows);
+  if (rows.length > 0) {
+    console.log("Username Already Exists");
+    res.redirect("signup");
   } else {
     bcrypt.hash(req.body.password, 10, async function(e, hash) {
-         let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
-         let fields = [username, hash];
-         try {
-           let query = await connection.execute(sql, [fields]).catch((err) => { console.log(err); });
-         } catch (err) {
+      let sql = 'INSERT INTO users (username,password) VALUES (?,?)';
+      let fields = [username, hash];
+      try {
+        let query = await connection.execute(sql, fields);
+      } catch (err) {
 
-           console.log(err);
-         }
-        //   if (e) {
-        //     throw e;
-        //   } else {
-        //     console.log("User Added to Database");
-        //     res.redirect("/");
-        //   }
+        console.log(err);
+      }
+      //   if (e) {
+      //     throw e;
+      //   } else {
+      //     console.log("User Added to Database");
+      //     res.redirect("/");
+      //   }
     });
   }
 }
