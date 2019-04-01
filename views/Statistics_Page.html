@@ -40,19 +40,22 @@
     <p>Below is an overview of your statistcs. Keep checking back to see where
     you are at.</p>
     </div>
-      <section class="stats-section">
-        <h1> MY STATS </h1>
-        <ul id="hydrationStat"> Hydration = <%=hydration%> </ul>
-        <ul id="weightStat"> Weight = <%=weight%> </ul>
-        <ul id="caloriesStat"> Calories = <%=calories%> </ul>
-        <ul id="stepsStat"> Steps = <%=steps%> </ul>
+
+    <!-- Headings -->
+
+
+    <!-- Paragraphs -->
+
+    <p>
+      <!-- line Break -->
+      <!-- Horizontal Line/Rule -->
+      <hr>
+    </p>
+      <section class="stats">
+        <%= stats %>
       </section>
-    <form action="/addStat">
-      <div id="addHydration" ><br>
-        <label for="hydration">Hydration levels in liters(L)</label><br>
-        <input type="hydration" name="hydration" value="5 liters">
-      </div>
-        <div id="addWeight" ><br>
+    <form action="/addStats" method="POST">
+        <div id="weight" ><br>
           <label for="weight">Weight in pounds(LB)</label><br>
           <input type="weight" name="weight" value="200LB">
         </div>
