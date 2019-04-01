@@ -23,14 +23,15 @@ connection.connect(function(e) {
        console.log("Connection to database established..");
     }
 });
-app.use(express.static('static'));
+app.use(express.static('views'));
 app.use(bodyParser.urlencoded({extend:true}));
 app.use(session({
     secret: 'temp-secret',
     resave: false,
-    saveUnitialized: false
+    saveUninitialized: false
 }));
-
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 /**
  * app - description
  *
@@ -58,11 +59,11 @@ app.get('/profile', function(req,res) {
     }
     else {
         /* if authenticated */
+        let statsArray = [];
+
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
         console.log(req.session.userID);
-        /*GET CURRENT STATS*/
-        let statsArray = [];
         /* GET HYDRATION */
         let sqlHydration = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
         connection.query(sqlHydration, req.session.userID, function(e, results) {
@@ -70,43 +71,43 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
-             statsArray.push(results);
-             console.log(results);
+             statsArray.push(results[0].hydrationValue);
+             let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
+             connection.query(sqlWeight, req.session.userID, function(e, results) {
+                if (e) {
+                  throw e;
+                }
+                else {
+                  statsArray.push(results[0].weightValue);
+                  let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
+                  connection.query(sqlCalories, req.session.userID, function(e, results) {
+                     if (e) {
+                       throw e;
+                     }
+                     else {
+                       statsArray.push(results[0].caloriesValue);
+                       let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
+                       connection.query(sqlSteps, req.session.userID, function(e, results) {
+                          if (e) {
+                            throw e;
+                          }
+                          else {
+                            statsArray.push(results[0].stepsValue);
+
+                            let hydration = statsArray[0];
+                            let weight = statsArray[1];
+                            let calories = statsArray[2];
+                            let steps = statsArray[3];
+
+                            res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
+                          }
+                        });
+                     }
+                   });
+                }
+              });
            }
          });
-         let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
-         connection.query(sqlWeight, req.session.userID, function(e, results) {
-            if (e) {
-              throw e;
-            }
-            else {
-              statsArray.push(results);
-              console.log(results);
-            }
-          });
-          let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
-          connection.query(sqlCalories, req.session.userID, function(e, results) {
-             if (e) {
-               throw e;
-             }
-             else {
-               statsArray.push(results);
-               console.log(results);
-             }
-           });
-           let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
-           connection.query(sqlSteps, req.session.userID, function(e, results) {
-              if (e) {
-                throw e;
-              }
-              else {
-                statsArray.push(results);
-                console.log(results);
-              }
-            });
-
-          res.render('Statistics_Page.html');
-
     }
 });
 
