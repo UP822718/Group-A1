@@ -20,17 +20,12 @@ describe('Web interface', function() {
         await browser.close();
       });
       it("send back username only", async function() {});
-      });
       it("send back password only", async function() {});
-      });
       it("send back confirm confirm Password only", async function() {});
-      });
       it("send back confirm confirm Password and Password  only", async function() {});
-      });
       it("send back confirm confirm Password and username  only",async function() {});
-      });
+
       it("send back confirm confirm confirm Password and username  only", async function() {});
-      });
     });
     describe('valid', function() {
       it("send back password and username", async function() {});
