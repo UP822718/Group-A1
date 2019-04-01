@@ -11,6 +11,7 @@ const puppeteer = require('puppeteer');
 
 
 describe('Web interface', function() {
+  this.timeout(9000);
   describe('signup', function() {
     describe('invalid', function() {
       it("send back nothing", async function() {
@@ -120,7 +121,7 @@ describe('Web interface', function() {
         output = await page.evaluate(() => {
           try {
             document.documentElement.querySelector("#particles-js > span > form > span:nth-child(1) > input[type='text']").setAttribute('value', 'value');
-              document.documentElement.querySelector('#particles-js > span > form > span:nth-child(3) > input[type="password"]').setAttribute('value', 'value');
+              document.documentElement.querySelector('#particles-js > span > form > span:nth-child(2) > input[type="password"]').setAttribute('value', 'value');
             document.documentElement.querySelector('#submit').click()
            return false;
           } catch (err) {
@@ -132,8 +133,27 @@ describe('Web interface', function() {
       });
     });
     describe('valid', function() {
-      it("send back password and username", async function() {});
-    });
+      it("send back password and username", async function() {
+        const browser = await puppeteer.launch({headless: false});
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080/signup.html', { waitUntil : ['load', 'domcontentloaded']});
+        output = await page.evaluate(() => {
+          try {
+            document.documentElement.querySelector("#particles-js > span > form > span:nth-child(1) > input[type='text']").setAttribute('value', 'value');
+              document.documentElement.querySelector('#particles-js > span > form > span:nth-child(2) > input[type="password"]').setAttribute('value', 'value');
+            document.documentElement.querySelector('#submit').click()
+           return false;
+          } catch (err) {
+            return true;
+          }
+        });
+        await browser.close();
+        assert.equal(true,output); //to fix
+      });
+
+
+
+      });
   });
   describe('Login', function() {
     describe('invalid', function() {
