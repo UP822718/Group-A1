@@ -54,39 +54,30 @@
     </p>
       <section class="stats-section">
         <h1> MY STATS </h1>
-        <ul> Hydration = <%=hydration%> </ul>
-        <ul> Weight = <%=weight%> </ul>
-        <ul> Calories = <%=calories%> </ul>
-        <ul> Steps = <%=steps%> </ul>
+        <ul id="hydration"> Hydration = <%=hydration%> </ul>
+        <ul id="weight"> Weight = <%=weight%> </ul>
+        <ul id="calories"> Calories = <%=calories%> </ul>
+        <ul id="steps"> Steps = <%=steps%> </ul>
       </section>
     <form action="/addStat">
-        <div id="first-name" >
-          <label for="first-name">First Name</label><br>
-          <input type="first-name" name="first-name" value="Donald">
-        </div>
-        <div id="last-name" ><br>
-          <label for="last-name">Last Name</label><br>
-          <input type="last-name" name="last-name" value="Duck">
-        </div>
-        <div id="weight" ><br>
+      <div id="addHydration" ><br>
+        <label for="hydration">Hydration levels in liters(L)</label><br>
+        <input type="hydration" name="hydration" value="5 liters">
+      </div>
+        <div id="addWeight" ><br>
           <label for="weight">Weight in pounds(LB)</label><br>
           <input type="weight" name="weight" value="200LB">
         </div>
-        <div id="calories" ><br>
+        <div id="addCalories" ><br>
           <label for="calories consumed">Total amount of calories consumed today</label><br>
           <input type="calories consumed" name="calories consumed" value="3000">
         </div>
-        <div id="hydration" ><br>
-          <label for="hydration">Hydration levels in liters(L)</label><br>
-          <input type="hydration" name="hydration" value="5 liters">
-        </div>
-        <div id="steps" ><br>
+        <div id="addSteps" ><br>
           <label for="steps">Steps taken today</label><br>
           <input type="steps" name="steps" value="77,777 steps">
         </div>
         <button type="reset">Reset</button>
       </form>
-
 
       <script src="./js/charts.js"></script>
       <div id="HydrationLevel" style="height: 370px; width: 90%;"></div>
