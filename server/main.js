@@ -59,7 +59,7 @@ app.get('/profile', function(req,res) {
     }
     else {
         /* if authenticated */
-        //let statsArray = [];
+        let statsArray = [];
 
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
@@ -71,41 +71,43 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
-             /*hydration = results[0].hydrationValue;*/
-             res.render('Statistics_Page', {hydration: results[0].hydrationValue});
+             statsArray.push(results[0].hydrationValue);
+             let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
+             connection.query(sqlWeight, req.session.userID, function(e, results) {
+                if (e) {
+                  throw e;
+                }
+                else {
+                  statsArray.push(results[0].weightValue);
+                  let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
+                  connection.query(sqlCalories, req.session.userID, function(e, results) {
+                     if (e) {
+                       throw e;
+                     }
+                     else {
+                       statsArray.push(results[0].caloriesValue);
+                       let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
+                       connection.query(sqlSteps, req.session.userID, function(e, results) {
+                          if (e) {
+                            throw e;
+                          }
+                          else {
+                            statsArray.push(results[0].stepsValue);
+
+                            let hydration = statsArray[0];
+                            let weight = statsArray[1];
+                            let calories = statsArray[2];
+                            let steps = statsArray[3];
+
+                            res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
+                          }
+                        });
+                     }
+                   });
+                }
+              });
            }
          });
-         /*
-         let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
-         connection.query(sqlWeight, req.session.userID, function(e, results) {
-            if (e) {
-              throw e;
-            }
-            else {
-              statsArray.push(results[0].weightValue);
-            }
-          });
-          let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
-          connection.query(sqlCalories, req.session.userID, function(e, results) {
-             if (e) {
-               throw e;
-             }
-             else {
-               statsArray.push(results[0].caloriesValue);
-             }
-           });
-           let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
-           connection.query(sqlSteps, req.session.userID, function(e, results) {
-              if (e) {
-                throw e;
-              }
-              else {
-                statsArray.push(results[0].stepsValue);
-              }
-            });
-
-          res.render('Statistics_Page', {hydration: hydration, weight: weight, calories: calories, steps: steps});
-          */
     }
 });
 
