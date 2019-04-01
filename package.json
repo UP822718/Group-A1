@@ -4,7 +4,7 @@
   "description": "",
   "main": "/server/main.js ",
   "scripts": {
-    "test": "node ./test/test.js",
+    "test": "./node_modules/.bin/mocha",
     "postinstall": "node ./post_install.js",
     "start": "node ./server/main.js "
   },
