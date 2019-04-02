@@ -297,7 +297,7 @@ async function getTop7(req,res) {
     }
     else {
       for (let i = 0; i < results.length && i < 7; i++) {
-        topHydration.push(results.length - i);
+        topHydration.push(results[i]);
       }
       let sqlTopWeight = 'SELECT weightValue FROM fitnessprofile.weight where userID = ?';
       connection.query(sqlTopWeight, req.session.userID, function(e, results) {
@@ -306,7 +306,7 @@ async function getTop7(req,res) {
         }
         else {
           for (let i = 0; i < results.length && i < 7; i++) {
-            topWeight.push(results.length - i);
+            topWeight.push(results[i]);
           }
           let sqlTopCalories = 'SELECT caloriesValue FROM fitnessprofile.calories where userID = ?';
           connection.query(sqlTopCalories, req.session.userID, function(e, results) {
@@ -315,7 +315,7 @@ async function getTop7(req,res) {
             }
             else {
               for (let i = 0; i < results.length && i < 7; i++) {
-                topCalories.push(results.length - i);
+                topCalories.push(results[i]);
               }
               let sqlTopWeight = 'SELECT stepsValue FROM fitnessprofile.steps where userID = ?';
               connection.query(sqlTopWeight, req.session.userID, function(e, results) {
@@ -324,7 +324,7 @@ async function getTop7(req,res) {
                 }
                 else {
                   for (let i = 0; i < results.length && i < 7; i++) {
-                    topSteps.push(results[results.length - i]);
+                    topSteps.push(results[i]);
                   }
 		  console.log({topHydration, topWeight, topCalories, topSteps});
                   res.json({topHydration, topWeight, topCalories, topSteps});
