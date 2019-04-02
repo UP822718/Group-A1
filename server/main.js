@@ -168,7 +168,7 @@ async function addStat(req,res) {
 
   let sqlAddHydration = 'INSERT INTO hydration (userID,hydrationValue) VALUES(?,?)';
   let fields = [req.session.userID, hydration];
-  connection.query(sqlHydration, fields, function(e, results) {
+  connection.query(sqlAddHydration, fields, function(e, results) {
      if (e) {
        throw e;
      }
