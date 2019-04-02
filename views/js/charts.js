@@ -140,7 +140,7 @@ jsonArray.then(function(result) {
 		}]
 	});
 	cChart.render();
-
+	let sMax = result.topSteps.length;
 	let sMon =result.topSteps[0].stepsValue;
 	let sTue =result.topSteps[1].stepsValue;
 	let sWed =result.topSteps[2].stepsValue;
