@@ -87,6 +87,7 @@ app.get('/profile', function(req,res) {
                    throw e;
                 }
                 else {
+                  let mostRecent = results.length - 1;
                   statsArray.push(results[mostRecent].weightValue);
                   let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
                   connection.query(sqlCalories, req.session.userID, function(e, results) {
