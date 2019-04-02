@@ -81,7 +81,7 @@
         <button onclick="CalHydration()">Calculate hydration</button>
         <script>
           function CalHydration(){
-	          let weight = document.getElementById(weightStat);
+	          let weight = document.getElementById(weightStat).value;
 	          document.getElementById("MinHydration").innerHTML = "Minimal hydration: " +(weight*10);
           }
         </script>
