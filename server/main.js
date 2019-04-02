@@ -88,7 +88,7 @@ app.get('/profile', function(req,res) {
                        throw e;
                      }
                      else {
-		       let mostRecent = results.length - 1;
+		                   let mostRecent = results.length - 1;
                        statsArray.push(results[mostRecent].caloriesValue);
                        let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
                        connection.query(sqlSteps, req.session.userID, function(e, results) {
@@ -96,7 +96,7 @@ app.get('/profile', function(req,res) {
                             throw e;
                           }
                           else {
-		            let mostRecent = results.length - 1;
+		                        let mostRecent = results.length - 1;
                             statsArray.push(results[mostRecent].stepsValue);
 
                             let hydration = statsArray[0];

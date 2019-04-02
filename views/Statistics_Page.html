@@ -47,31 +47,35 @@
       </p>
         <section class="stats-section">
           <h1> CURRENT STATS </h1>
-            <ul id="hydrationStat"> Hydration = <%=hydration%> </ul>
-            <ul id="weightStat"> Weight = <%=weight%> </ul>
-            <ul id="caloriesStat"> Calories = <%=calories%> </ul>
-            <ul id="stepsStat"> Steps = <%=steps%> </ul>
+            <ul id="hydrationStat"> Hydration = <%=hydration%>L</ul>
+            <ul id="weightStat"> Weight = <%=weight%>KG</ul>
+            <ul id="caloriesStat"> Calories = <%=calories%> Calories</ul>
+            <ul id="stepsStat"> Steps = <%=steps%> Steps</ul>
         </section>
+      <section class="addStats-section">
+        <h1> ADD STATS </h1>
+        <p> Fill in every field below then hit submit to update your stats! </p>
       <form class="statForm"action="/addStats" method="POST">
           <div id="addHydration" ><br>
-            <label for="hydration">Hydration in Litres</label><br>
+            <label for="hydration">Hydration in Litres(L)</label><br>
             <input type="number" name="hydration" placeholder="e.g 2 (Litres)" required>
           </div>
           <div id="addweight" ><br>
-            <label for="weight">Weight in pounds(LB)</label><br>
-            <input type="number" name="weight" placeholder="e.g 70 (Kg)">
+            <label for="weight">Weight in Kilograms(KG)</label><br>
+            <input type="number" name="weight" placeholder="e.g 70 (Kg)" required>
           </div>
           <div id="addCalories" ><br>
-            <label for="calories consumed">Total amount of calories consumed today</label><br>
-            <input type="number" name="calories" placeholder="e.g 3000 (Cal)">
+            <label for="calories consumed">Total Calories Consumed Today (Cal)</label><br>
+            <input type="number" name="calories" placeholder="e.g 3000 (Cal)" required>
           </div>
           <div id="addSteps" ><br>
-            <label for="steps">Steps taken today</label><br>
-            <input type="number" name="steps" placeholder="e.g 100000 (steps)">
+            <label for="steps">Steps taken Today (Steps)</label><br>
+            <input type="number" name="steps" placeholder="e.g 100000 (steps)" required>
           </div>
           <button type="submit">Add Stats</button>
           <button type="reset">Reset</button>
         </form>
+      </section>
 
         <script src="./js/charts.js"></script>
         <div id="HydrationLevel" style="height: 370px; width: 90%;"></div>
