@@ -253,7 +253,7 @@ async function authUser(req,res) {
 }
 
 async function logoutUser(req,res) {
-    req.logout();
+    req.session.destroy();
     res.redirect('/');
 }
 app.listen(8080, console.log("Listening.."));
