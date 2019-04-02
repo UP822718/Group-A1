@@ -159,10 +159,10 @@ async function authLogin(req,res) {
 
 async function addStat(req,res) {
   /* Declare variables from form request */
-  const hydration = request.body.hydration;
-  const weight = request.body.weight;
-  const calories = request.body.calories;
-  const steps = request.body.steps;
+  const hydration = req.body.hydration;
+  const weight = req.body.weight;
+  const calories = req.body.calories;
+  const steps = req.body.steps;
 
   /* SQL statements to database for inserting each stat */
 
