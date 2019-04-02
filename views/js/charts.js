@@ -154,39 +154,39 @@ jsonArray.then(function(result) {
 	chart.render();
 
 	try {
-		let cMon=result.topCalories[0].caloriesValue;
+		CMon=result.topCalories[0].caloriesValue;
 	} catch(e){
-		let cMon=0;
+		CMon=0;
 	}
 	try {
-		let cTue=result.topCalories[1].caloriesValue;
+		CTue=result.topCalories[1].caloriesValue;
 	} catch(e) {
-		let cTue=0;
+		CTue=0;
 	}
 	try {
-		let cWed=result.topCalories[2].caloriesValue;
+		CWed=result.topCalories[2].caloriesValue;
 	} catch(e) {
-		let cWed=0;
+		CWed=0;
 	}
 	try {
-		let cThu=result.topCalories[3].caloriesValue;
+		CThu=result.topCalories[3].caloriesValue;
 	} catch(e) {
-		let cThu=0;
+		CThu=0;
 	}
 	try {
-		let cFri=result.topCalories[4].caloriesValue;
+		CFri=result.topCalories[4].caloriesValue;
 	} catch(e) {
-		let cFri=0;
+		CFri=0;
 	}
 	try {
-		let cSat=result.topCalories[5].caloriesValue;
+		CSat=result.topCalories[5].caloriesValue;
 	} catch(e) {
-		let cSaty=0;
+		CSat=0;
 	}
 	try {
-		let cSun=result.topCalories[6].caloriesValue;
+		CSun=result.topCalories[6].caloriesValue;
 	} catch(e) {
-		let cSun=0;
+		CSun=0;
 	}
 	let cDaynum = 0
 	let cDay1 =(cDaynum+1)
@@ -212,52 +212,52 @@ jsonArray.then(function(result) {
 			legendMarkerColor: "grey",
 			legendText: "Most Recent 7 Stats",
 			dataPoints: [
-				{ y: cMon, label: cDay1 },
-				{ y: cTue,  label: cDay2 },
-				{ y: cWed,  label: cDay3 },
-				{ y: cThu,  label: cDay4 },
-				{ y: cFri,  label: cDay5 },
-				{ y: cSat, label: cDay6 },
-				{ y: cSun,  label: cDay7 }
+				{ y: CMon, label: cDay1 },
+				{ y: CTue,  label: cDay2 },
+				{ y: CWed,  label: cDay3 },
+				{ y: CThu,  label: cDay4 },
+				{ y: CFri,  label: cDay5 },
+				{ y: CSat, label: cDay6 },
+				{ y: CSun,  label: cDay7 }
 			]
 		}]
 	});
 	cChart.render();
 
 	try {
-		let sMon=result.topSteps[0].stepsValue;
+		SMon=result.topSteps[0].stepsValue;
 	} catch(e){
-		let sMony=0;
+		SMon=0;
 	}
 	try {
-		let sTue=result.topSteps[1].stepsValue;
+		STue=result.topSteps[1].stepsValue;
 	} catch(e) {
-		let sTue=0;
+		STue=0;
 	}
 	try {
-		let sWed=result.topSteps[2].stepsValue;
+		SWed=result.topSteps[2].stepsValue;
 	} catch(e) {
-		let sWed=0;
+		SWed=0;
 	}
 	try {
-		let sThu=result.topSteps[3].stepsValue;
+		SThu=result.topSteps[3].stepsValue;
 	} catch(e) {
-		let sThu=0;
+		SThu=0;
 	}
 	try {
-		let sFri=result.topSteps[4].stepsValue;
+		SFri=result.topSteps[4].stepsValue;
 	} catch(e) {
-		let sFri=0;
+		SFri=0;
 	}
 	try {
-		let sSat=result.topSteps[5].stepsValue;
+		SSat=result.topSteps[5].stepsValue;
 	} catch(e) {
-		let sSat=0;
+		SSat=0;
 	}
 	try {
-		let sSun=result.topSteps[6].stepsValue;
+		SSun=result.topSteps[6].stepsValue;
 	} catch(e) {
-		let sSun=0;
+		SSun=0;
 	}
 	let sDaynum = 0
 	let sDay1 =(sDaynum+1)
@@ -283,13 +283,13 @@ jsonArray.then(function(result) {
 		legendMarkerColor: "grey",
 		legendText: "Most Recent 7 Stats",
 		dataPoints: [
-			{ y: sMon, label: sDay1 },
-			{ y: sTue,  label: sDay2 },
-			{ y: sWed,  label: sDay3 },
-			{ y: sThu,  label: sDay4 },
-			{ y: sFri,  label: sDay5 },
-			{ y: sSat, label: sDay6 },
-			{ y: sSun,  label: sDay7 }
+			{ y: SMon, label: sDay1 },
+			{ y: STue,  label: sDay2 },
+			{ y: SWed,  label: sDay3 },
+			{ y: SThu,  label: sDay4 },
+			{ y: SFri,  label: sDay5 },
+			{ y: SSat, label: sDay6 },
+			{ y: SSun,  label: sDay7 }
 		]
 	}]
 	});
