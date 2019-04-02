@@ -167,7 +167,7 @@ async function addStat(req,res) {
   /* SQL statements to database for inserting each stat */
 
   let sqlAddHydration = 'INSERT INTO hydration (userID,hydrationValue) VALUES(?,?)';
-  let fields = [req.session.userID, hydrationValue];
+  let fields = [req.session.userID, hydration];
   connection.query(sqlHydration, fields, function(e, results) {
      if (e) {
        throw e;
