@@ -142,12 +142,12 @@ jsonArray.then(function(result) {
 	cChart.render();
 
 	let sMon =result.topSteps[0].stepsValue;
-	let sTue =result.topSteps[0].stepsValue;
-	let sWed =result.topSteps[0].stepsValue;
-	let sThu =result.topSteps[0].stepsValue;
-	let sFri =result.topSteps[0].stepsValue;
-	let sSat =result.topSteps[0].stepsValue;
-	let sSun =result.topSteps[0].stepsValue;
+	let sTue =result.topSteps[1].stepsValue;
+	let sWed =result.topSteps[2].stepsValue;
+	let sThu =result.topSteps[3].stepsValue;
+	let sFri =result.topSteps[4].stepsValue;
+	let sSat =result.topSteps[5].stepsValue;
+	let sSun =result.topSteps[6].stepsValue;
 	let sDaynum = 0
 	let sDay1 =(sDaynum+1)
 	let sDay2 =(sDaynum+2)
