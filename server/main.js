@@ -290,7 +290,7 @@ async function getTop7(req,res) {
   let topCalories = [];
   let topSteps = [];
 
-  let sqlTopHydration = 'SELECT hydrationValue FROM fitnessprofile.hydration where username = ?';
+  let sqlTopHydration = 'SELECT hydrationValue FROM fitnessprofile.hydration where userID = ?';
   connection.query(sqlTopHydration, req.session.userID, function(e, results) {
     if (e) {
       throw e;
@@ -299,7 +299,7 @@ async function getTop7(req,res) {
       for (let i = 0; i < results.length || i < 7; i++) {
         topHydration.push(results[i]);
       }
-      let sqlTopWeight = 'SELECT weightValue FROM fitnessprofile.weight where username = ?';
+      let sqlTopWeight = 'SELECT weightValue FROM fitnessprofile.weight where userID = ?';
       connection.query(sqlTopWeight, req.session.userID, function(e, results) {
         if (e) {
           throw e;
@@ -308,7 +308,7 @@ async function getTop7(req,res) {
           for (let i = 0; i < results.length || i < 7; i++) {
             topWeight.push(results[i]);
           }
-          let sqlTopCalories = 'SELECT caloriesValue FROM fitnessprofile.calories where username = ?';
+          let sqlTopCalories = 'SELECT caloriesValue FROM fitnessprofile.calories where userID = ?';
           connection.query(sqlTopCalories, req.session.userID, function(e, results) {
             if (e) {
               throw e;
@@ -317,7 +317,7 @@ async function getTop7(req,res) {
               for (let i = 0; i < results.length || i < 7; i++) {
                 topCalories.push(results[i]);
               }
-              let sqlTopWeight = 'SELECT stepsValue FROM fitnessprofile.steps where username = ?';
+              let sqlTopWeight = 'SELECT stepsValue FROM fitnessprofile.steps where userID = ?';
               connection.query(sqlTopWeight, req.session.userID, function(e, results) {
                 if (e) {
                   throw e;
@@ -326,7 +326,8 @@ async function getTop7(req,res) {
                   for (let i = 0; i < results.length || i < 7; i++) {
                     topSteps.push(results[i]);
                   }
-                  res.json(topHydration, topWeight, topCalories, topSteps);
+		  console.log({topHydration, topWeight, topCalories, topSteps});
+                  res.json({topHydration, topWeight, topCalories, topSteps});
                 }
               });
             }

@@ -1,10 +1,15 @@
 window.onload = function () {
 	async function getTop7() {
 		let res = await fetch('/getTop7');
+		console.log("RES:", res);
 		let data = await res.json();
 		console.log("Data:", data);
 		return data;
 	}
+let jsonArray = getTop7();
+console.log("jsonArray: ",jsonArray);
+let weightArray = jsonArray.topWeight;
+
 Weight = 70
 ExcerciceHour = 1
 calculatehydration = (Weight * 3 +(ExcerciceHour*100))/100
