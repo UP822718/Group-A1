@@ -71,7 +71,10 @@ app.get('/profile', function(req,res) {
              throw e;
            }
            else {
-             statsArray.push(results[0].hydrationValue);
+             console.log(results.length);
+	     console.log(results);
+             let mostRecent = results.length - 1;
+             statsArray.push(results[mostRecent].hydrationValue);
              let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
              connection.query(sqlWeight, req.session.userID, function(e, results) {
                 if (e) {
@@ -85,14 +88,16 @@ app.get('/profile', function(req,res) {
                        throw e;
                      }
                      else {
-                       statsArray.push(results[0].caloriesValue);
+		       let mostRecent = results.length - 1;
+                       statsArray.push(results[mostRecent].caloriesValue);
                        let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
                        connection.query(sqlSteps, req.session.userID, function(e, results) {
                           if (e) {
                             throw e;
                           }
                           else {
-                            statsArray.push(results[0].stepsValue);
+		            let mostRecent = results.length - 1;
+                            statsArray.push(results[mostRecent].stepsValue);
 
                             let hydration = statsArray[0];
                             let weight = statsArray[1];
@@ -167,17 +172,46 @@ async function addStat(req,res) {
   /* SQL statements to database for inserting each stat */
 
   let sqlAddHydration = 'INSERT INTO hydration (userID,hydrationValue) VALUES(?,?)';
-  let fields = [req.session.userID, hydration];
-  connection.query(sqlAddHydration, fields, function(e, results) {
+  let hydrationFields = [req.session.userID, hydration];
+  connection.query(sqlAddHydration, hydrationFields, function(e, results) {
      if (e) {
        throw e;
      }
      else {
-       console.log("Added new Stats");
-       res.redirect('/profile');
+       console.log("Added new hydration");
      }
   });
-
+  let sqlAddWeight = 'INSERT INTO weight (userID,weightValue) VALUES(?,?)';
+  let weightFields = [req.session.userID, weight];
+  connection.query(sqlAddWeight, weightFields, function(e, results) {
+     if (e) {
+       throw e;
+     }
+     else {
+	console.log("Added new weight");
+     }
+  });
+  let sqlAddCalories = 'INSERT INTO calories (userID,caloriesValue) VALUES(?,?)';
+  let caloriesFields = [req.session.userID, calories];
+  connection.query(sqlAddCalories, caloriesFields, function(e, results) {
+    if (e) {
+      throw e;
+    }
+    else {
+      console.log("Added new calories");
+    }
+  });
+   let sqlAddSteps = 'INSERT INTO steps (userID,stepsValue) VALUES(?,?)';
+   let stepsFields = [req.session.userID, steps];
+   connection.query(sqlAddSteps, stepsFields, function(e, results) {
+     if (e) {
+       throw e;
+     }
+     else {
+       console.log("Added new steps");
+       res.redirect('/profile');
+     }
+   });
 }
 /**
  * authUser - description
