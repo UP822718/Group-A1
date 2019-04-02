@@ -8,26 +8,24 @@ window.onload = function () {
 	}
 let jsonArray = getTop7();
 console.log("jsonArray: ",jsonArray);
-let weightArray = jsonArray.topWeight;
 
-Weight = 70
-ExcerciceHour = 1
-calculatehydration = (Weight * 3 +(ExcerciceHour*100))/100
-HMonday=1.3
-HTuesday=1.6
-HWednesday=1.4
-HThursday=0.5
-HFriday=1.5
-HSaturday = 1.4
-HSunday = 1.7
+let hydrationArray = jsonArray.topHydration;
+
+HMonday=hydrationArray[0];
+HTuesday=hydrationArray[1];
+HWednesday=hydrationArray[2];
+HThursday=hydrationArray[3];
+HFriday=hydrationArray[4];
+HSaturday =hydrationArray[5];
+HSunday = hydrationArray[6];
 Hdaynum =0
-Hday1 ="Monday " + (Hdaynum+1)
-Hday2 ="Tuesday " + (Hdaynum+2)
-Hday3 ="Wednesday "+ (Hdaynum+3)
-Hday4 ="Thursday "+ (Hdaynum+4)
-Hday5 ="Friday "+ (Hdaynum+5)
-Hday6 ="Saturday "+(Hdaynum+6)
-Hday7 ="Sunday "+ (Hdaynum+7)
+Hday1 =(Hdaynum+1)
+Hday2 =(Hdaynum+2)
+Hday3 =(Hdaynum+3)
+Hday4 =(Hdaynum+4)
+Hday5 =(Hdaynum+5)
+Hday6 =(Hdaynum+6)
+Hday7 =(Hdaynum+7)
 
 var chart = new CanvasJS.Chart("HydrationLevel", {
 	animationEnabled: true,
@@ -36,7 +34,7 @@ var chart = new CanvasJS.Chart("HydrationLevel", {
 		text: "Hydration Level"
 	},
 	axisY: {
-		title: "Hydration in liter"
+		title: "Hydration in Litres"
 	},
 	data: [{
 		type: "column",
@@ -56,7 +54,7 @@ var chart = new CanvasJS.Chart("HydrationLevel", {
 });
 chart.render();
 
-
+let weightArray = jsonArray.topWeight;
 WMonday=90
 WTuesday=91
 WWednesday=90
