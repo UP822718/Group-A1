@@ -153,6 +153,8 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
+	document.getElementById("MinHydration").innerHTML = "Minimal hydration: " +(result.topWeight[0].weightValue*10);
+	
 	try {
 		CMon=result.topCalories[0].caloriesValue;
 	} catch(e){
@@ -294,10 +296,6 @@ jsonArray.then(function(result) {
 	}]
 	});
 	sChart.render();
-	  function CalHydration(){
-		  document.getElementById("MinHydration").innerHTML = "Minimal hydration: " +(result.topWeight[0].weightValue*10);
-	  }
-
 });
 
 }
