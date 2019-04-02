@@ -8,10 +8,11 @@ window.onload = function () {
 	}
 let jsonArray = getTop7();
 console.log("jsonArray: ",jsonArray);
-
-let hydrationArray = jsonArray.topHydration;
-console.log(hydrationArray);
-console.log(hydrationArray.tophydration[0]);
+jsonArray.then(function(result) {
+	console.log("statArray:",result);
+	console.log("hydrationArray:",result.topHydration);
+	console.log("test: ",result.topHydration[0].hydrationValue);
+});
 HMonday=hydrationArray[0];
 HTuesday=hydrationArray[1];
 HWednesday=hydrationArray[2];
