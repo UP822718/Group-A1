@@ -68,7 +68,7 @@ app.get('/profile', function(req,res) {
         let sqlHydration = 'SELECT hydrationValue FROM hydration WHERE userID = ?';
         connection.query(sqlHydration, req.session.userID, function(e, results) {
            if (e) {
-             throw e;
+             res.render('Statistics_Page', {hydration: 'Not Set', weight: 'Not Set', calories: 'Not Set', steps: 'Not Set'});
            }
            else {
              console.log(results.length);
@@ -78,7 +78,7 @@ app.get('/profile', function(req,res) {
              let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
              connection.query(sqlWeight, req.session.userID, function(e, results) {
                 if (e) {
-                  res.render('Statistics_Page', {hydration: 'Not Set', weight: 'Not Set', calories: 'Not Set', steps: 'Not Set'});
+                   throw e;
                 }
                 else {
                   statsArray.push(results[0].weightValue);
