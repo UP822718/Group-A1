@@ -158,6 +158,25 @@ async function authLogin(req,res) {
 }
 
 async function addStat(req,res) {
+  /* Declare variables from form request */
+  const hydration = request.body.hydration;
+  const weight = request.body.weight;
+  const calories = request.body.calories;
+  const steps = request.body.steps;
+
+  /* SQL statements to database for inserting each stat */
+
+  let sqlAddHydration = 'INSERT INTO hydration (userID,hydrationValue) VALUES(?,?)';
+  let fields = [req.session.userID, hydrationValue];
+  connection.query(sqlHydration, fields, function(e, results) {
+     if (e) {
+       throw e;
+     }
+     else {
+       console.log("Added new Stats");
+       res.redirect('/profile');
+     }
+
 }
 /**
  * authUser - description

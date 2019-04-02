@@ -52,22 +52,22 @@
             <ul id="caloriesStat"> Calories = <%=calories%> </ul>
             <ul id="stepsStat"> Steps = <%=steps%> </ul>
         </section>
-      <form action="/addStats" method="POST">
+      <form class="statForm"action="/addStats" method="POST">
           <div id="addHydration" ><br>
             <label for="hydration">Hydration in Litres</label><br>
-            <input type="hydration" name="hydration" value="1.5L">
+            <input type="number" name="hydration" placeholder="e.g 2 (Litres)" required>
           </div>
           <div id="addweight" ><br>
             <label for="weight">Weight in pounds(LB)</label><br>
-            <input type="weight" name="weight" value="200LB">
+            <input type="number" name="weight" placeholder="e.g 70 (Kg)">
           </div>
           <div id="addCalories" ><br>
             <label for="calories consumed">Total amount of calories consumed today</label><br>
-            <input type="calories consumed" name="calories consumed" value="3000">
+            <input type="number" name="calories" placeholder="e.g 3000 (Cal)">
           </div>
           <div id="addSteps" ><br>
             <label for="steps">Steps taken today</label><br>
-            <input type="steps" name="steps" value="77,777 steps">
+            <input type="number" name="steps" placeholder="e.g 100000 (steps)">
           </div>
           <button type="reset">Reset</button>
         </form>
