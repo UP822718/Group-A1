@@ -296,8 +296,8 @@ async function getTop7(req,res) {
       throw e;
     }
     else {
-      for (let i = 0; i < results.length || i < 7; i++) {
-        topHydration.push(results[i]);
+      for (let i = 0; i < results.length && i < 7; i++) {
+        topHydration.push(results[(results.length-i)-1]);
       }
       let sqlTopWeight = 'SELECT weightValue FROM fitnessprofile.weight where userID = ?';
       connection.query(sqlTopWeight, req.session.userID, function(e, results) {
@@ -305,8 +305,8 @@ async function getTop7(req,res) {
           throw e;
         }
         else {
-          for (let i = 0; i < results.length || i < 7; i++) {
-            topWeight.push(results[i]);
+          for (let i = 0; i < results.length && i < 7; i++) {
+            topWeight.push(results[(results.length-i)-1]);
           }
           let sqlTopCalories = 'SELECT caloriesValue FROM fitnessprofile.calories where userID = ?';
           connection.query(sqlTopCalories, req.session.userID, function(e, results) {
@@ -314,8 +314,8 @@ async function getTop7(req,res) {
               throw e;
             }
             else {
-              for (let i = 0; i < results.length || i < 7; i++) {
-                topCalories.push(results[i]);
+              for (let i = 0; i < results.length && i < 7; i++) {
+                topCalories.push(results[(results.length-i)-1]);
               }
               let sqlTopWeight = 'SELECT stepsValue FROM fitnessprofile.steps where userID = ?';
               connection.query(sqlTopWeight, req.session.userID, function(e, results) {
@@ -323,10 +323,10 @@ async function getTop7(req,res) {
                   throw e;
                 }
                 else {
-                  for (let i = 0; i < results.length || i < 7; i++) {
-                    topSteps.push(results[i]);
+                  for (let i = 0; i < results.length && i < 7; i++) {
+                    topSteps.push(results[(results.length-i)-1]);
                   }
-		  console.log({topHydration, topWeight, topCalories, topSteps});
+		              console.log({topHydration, topWeight, topCalories, topSteps});
                   res.json({topHydration, topWeight, topCalories, topSteps});
                 }
               });
