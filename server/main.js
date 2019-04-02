@@ -176,6 +176,7 @@ async function addStat(req,res) {
        console.log("Added new Stats");
        res.redirect('/profile');
      }
+  });
 
 }
 /**
