@@ -153,7 +153,7 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	document.getElementById("MinHydration").innerHTML = "Minimal hydration: " +(result.topWeight[0].weightValue*10)+" Litre";
+	document.getElementById("MinHydration").innerHTML = "Minimal hydration: " +((result.topWeight[0].weightValue*3)/100)+" Litre";
 	
 	try {
 		CMon=result.topCalories[0].caloriesValue;
