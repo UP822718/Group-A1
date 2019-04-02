@@ -11,7 +11,7 @@ console.log("jsonArray: ",jsonArray);
 jsonArray.then(function(result) {
 	console.log("statArray:",result);
 	console.log("hydrationArray:",result.topHydration);
-	console.log("test: ",result.topHydration[0].hydrationValue);
+
 	HMonday=result.topHydration[0].hydrationValue;
 	HTuesday=result.topHydration[1].hydrationValue;
 	HWednesday=result.topHydration[2].hydrationValue;
@@ -41,7 +41,7 @@ jsonArray.then(function(result) {
 			type: "column",
 			showInLegend: true,
 			legendMarkerColor: "grey",
-			legendText: "Days of the Week",
+			legendText: "Most Recent 7 Stats",
 			dataPoints: [
 				{ y: HMonday,     label: Hday1 },
 				{ y: HTuesday,    label: Hday2 },
@@ -55,22 +55,21 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	let weightArray = jsonArray.topWeight;
-	WMonday=90
-	WTuesday=91
-	WWednesday=90
-	WThursday=89
-	WFriday=88
-	WSaturday = 89
-	WSunday = 88
+	WMonday=result.topWeight[0].weightValue;
+	WTuesday=result.topWeight[1].weightValue;
+	WWednesday=result.topWeight[2].weightValue;
+	WThursday=result.topWeight[3].weightValue;
+	WFriday=result.topWeight[4].weightValue;
+	WSaturday =result.topWeight[5].weightValue;
+	WSunday =result.topWeight[6].weightValue;
 	Wdaynum =0
-	Wday1 ="Monday " + (Wdaynum+1)
-	Wday2 ="Tuesday " + (Wdaynum+2)
-	Wday3 ="Wednesday "+ (Wdaynum+3)
-	Wday4 ="Thursday "+ (Wdaynum+4)
-	Wday5 ="Friday "+ (Wdaynum+5)
-	Wday6 ="Saturday "+(Wdaynum+6)
-	Wday7 ="Sunday "+ (Wdaynum+7)
+	Wday1 =(Wdaynum+1)
+	Wday2 =(Wdaynum+2)
+	Wday3 =(Wdaynum+3)
+	Wday4 =(Wdaynum+4)
+	Wday5 =(Wdaynum+5)
+	Wday6 =(Wdaynum+6)
+	Wday7 =(Wdaynum+7)
 
 	var chart = new CanvasJS.Chart("Weight", {
 		animationEnabled: true,
@@ -85,7 +84,7 @@ jsonArray.then(function(result) {
 			type: "column",
 			showInLegend: true,
 			legendMarkerColor: "black",
-			legendText: "Days of the Week",
+			legendText: "Most Recent 7 Stats",
 			dataPoints: [
 				{ y: WMonday,     label: Wday1 },
 				{ y: WTuesday,    label: Wday2 },
@@ -99,21 +98,21 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	let cMon = 10000 * 0.05
-	let cTue = 7000 * 0.05
-	let cWed = 9458 * 0.05
-	let cThu = 2398 * 0.05
-	let cFri = 765 * 0.05
-	let cSat = 3876 * 0.05
-	let cSun = 8654 * 0.05
+	let cMon =result.topCalories[0].caloriesValue;
+	let cTue =result.topCalories[1].caloriesValue;
+	let cWed =result.topCalories[2].caloriesValue;
+	let cThu =result.topCalories[3].caloriesValue;
+	let cFri =result.topCalories[4].caloriesValue;
+	let cSat =result.topCalories[5].caloriesValue;
+	let cSun =result.topCalories[6].caloriesValue;
 	let cDaynum = 0
-	let cDay1 ="Monday " + (cDaynum+1)
-	let cDay2 ="Tuesday " + (cDaynum+2)
-	let cDay3 ="Wednesday "+ (cDaynum+3)
-	let cDay4 ="Thursday "+ (cDaynum+4)
-	let cDay5 ="Friday "+ (cDaynum+5)
-	let cDay6 ="Saturday "+(cDaynum+6)
-	let cDay7 ="Sunday "+ (cDaynum+7)
+	let cDay1 =(cDaynum+1)
+	let cDay2 =(cDaynum+2)
+	let cDay3 =(cDaynum+3)
+	let cDay4 =(cDaynum+4)
+	let cDay5 =(cDaynum+5)
+	let cDay6 =(cDaynum+6)
+	let cDay7 =(cDaynum+7)
 
 	let cChart = new CanvasJS.Chart("calories", {
 		animationEnabled: true,
@@ -128,7 +127,7 @@ jsonArray.then(function(result) {
 			type: "column",
 			showInLegend: true,
 			legendMarkerColor: "grey",
-			legendText: "Days of the Week",
+			legendText: "Most Recent 7 Stats",
 			dataPoints: [
 				{ y: cMon, label: cDay1 },
 				{ y: cTue,  label: cDay2 },
@@ -142,21 +141,21 @@ jsonArray.then(function(result) {
 	});
 	cChart.render();
 
-	let sMon = 10000
-	let sTue = 7000
-	let sWed = 9458
-	let sThu = 2398
-	let sFri = 765
-	let sSat = 3876
-	let sSun = 8654
+	let sMon =result.topSteps[0].stepsValue;
+	let sTue =result.topSteps[0].stepsValue;
+	let sWed =result.topSteps[0].stepsValue;
+	let sThu =result.topSteps[0].stepsValue;
+	let sFri =result.topSteps[0].stepsValue;
+	let sSat =result.topSteps[0].stepsValue;
+	let sSun =result.topSteps[0].stepsValue;
 	let sDaynum = 0
-	let sDay1 ="Monday " + (sDaynum+1)
-	let sDay2 ="Tuesday " + (sDaynum+2)
-	let sDay3 ="Wednesday "+ (sDaynum+3)
-	let sDay4 ="Thursday "+ (sDaynum+4)
-	let sDay5 ="Friday "+ (sDaynum+5)
-	let sDay6 ="Saturday "+(sDaynum+6)
-	let sDay7 ="Sunday "+ (sDaynum+7)
+	let sDay1 =(sDaynum+1)
+	let sDay2 =(sDaynum+2)
+	let sDay3 =(sDaynum+3)
+	let sDay4 =(sDaynum+4)
+	let sDay5 =(sDaynum+5)
+	let sDay6 =(sDaynum+6)
+	let sDay7 =(sDaynum+7)
 
 	let sChart = new CanvasJS.Chart("stepsCount", {
 	animationEnabled: true,
@@ -171,7 +170,7 @@ jsonArray.then(function(result) {
 		type: "column",
 		showInLegend: true,
 		legendMarkerColor: "grey",
-		legendText: "Days of the Week",
+		legendText: "Most Recent 7 Stats",
 		dataPoints: [
 			{ y: sMon, label: sDay1 },
 			{ y: sTue,  label: sDay2 },
