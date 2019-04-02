@@ -83,39 +83,39 @@ jsonArray.then(function(result) {
 	chart.render();
 
 	try {
-		HMonday=result.topWeight[0].WeightValue;
+		WMonday=result.topWeight[0].WeightValue;
 	} catch(e){
-		HMonday=0;
+		WMonday=0;
 	}
 	try {
-		HTuesday=result.topWeight[1].WeightValue;
+		WTuesday=result.topWeight[1].WeightValue;
 	} catch(e) {
-		HTuesday=0;
+		WTuesday=0;
 	}
 	try {
-		HWednesday=result.topWeight[2].WeightValue;
+		WWednesday=result.topWeight[2].WeightValue;
 	} catch(e) {
-		HWednesday=0;
+		WWednesday=0;
 	}
 	try {
-		HThursday=result.topWeight[3].WeightValue;
+		WThursday=result.topWeight[3].WeightValue;
 	} catch(e) {
-		HThursday=0;
+		WThursday=0;
 	}
 	try {
-		HFriday=result.topWeight[4].WeightValue;
+		WFriday=result.topWeight[4].WeightValue;
 	} catch(e) {
-		HFriday=0;
+		WFriday=0;
 	}
 	try {
-		HSaturday=result.topWeight[5].WeightValue;
+		WSaturday=result.topWeight[5].WeightValue;
 	} catch(e) {
-		HSaturday=0;
+		WSaturday=0;
 	}
 	try {
-		HSunday=result.topWeight[6].WeightValue;
+		WSunday=result.topWeight[6].WeightValue;
 	} catch(e) {
-		HSunday=0;
+		WSunday=0;
 	}
 	Wdaynum =0
 	Wday1 =(Wdaynum+1)
@@ -154,39 +154,39 @@ jsonArray.then(function(result) {
 	chart.render();
 
 	try {
-		HMonday=result.topCalories[0].caloriesValue;
+		cMon=result.topCalories[0].caloriesValue;
 	} catch(e){
-		HMonday=0;
+		cMon=0;
 	}
 	try {
-		HTuesday=result.topCalories[1].caloriesValue;
+		cTue=result.topCalories[1].caloriesValue;
 	} catch(e) {
-		HTuesday=0;
+		cTue=0;
 	}
 	try {
-		HWednesday=result.topCalories[2].caloriesValue;
+		cWed=result.topCalories[2].caloriesValue;
 	} catch(e) {
-		HWednesday=0;
+		cWed=0;
 	}
 	try {
-		HThursday=result.topCalories[3].caloriesValue;
+		cThu=result.topCalories[3].caloriesValue;
 	} catch(e) {
-		HThursday=0;
+		cThu=0;
 	}
 	try {
-		HFriday=result.topCalories[4].caloriesValue;
+		cFri=result.topCalories[4].caloriesValue;
 	} catch(e) {
-		HFriday=0;
+		cFri=0;
 	}
 	try {
-		HSaturday=result.topCalories[5].caloriesValue;
+		cSat=result.topCalories[5].caloriesValue;
 	} catch(e) {
-		HSaturday=0;
+		cSaty=0;
 	}
 	try {
-		HSunday=result.topCalories[6].caloriesValue;
+		cSun=result.topCalories[6].caloriesValue;
 	} catch(e) {
-		HSunday=0;
+		cSun=0;
 	}
 	let cDaynum = 0
 	let cDay1 =(cDaynum+1)
@@ -225,39 +225,39 @@ jsonArray.then(function(result) {
 	cChart.render();
 
 	try {
-		HMonday=result.topSteps[0].stepsValue;
+		sMon=result.topSteps[0].stepsValue;
 	} catch(e){
-		HMonday=0;
+		sMony=0;
 	}
 	try {
-		HTuesday=result.topSteps[1].stepsValue;
+		sTue=result.topSteps[1].stepsValue;
 	} catch(e) {
-		HTuesday=0;
+		sTue=0;
 	}
 	try {
-		HWednesday=result.topSteps[2].stepsValue;
+		sWed=result.topSteps[2].stepsValue;
 	} catch(e) {
-		HWednesday=0;
+		sWed=0;
 	}
 	try {
-		HThursday=result.topSteps[3].stepsValue;
+		sThu=result.topSteps[3].stepsValue;
 	} catch(e) {
-		HThursday=0;
+		sThu=0;
 	}
 	try {
-		HFriday=result.topSteps[4].stepsValue;
+		sFri=result.topSteps[4].stepsValue;
 	} catch(e) {
-		HFriday=0;
+		sFri=0;
 	}
 	try {
-		HSaturday=result.topSteps[5].stepsValue;
+		sSat=result.topSteps[5].stepsValue;
 	} catch(e) {
-		HSaturday=0;
+		sSat=0;
 	}
 	try {
-		HSunday=result.topSteps[6].stepsValue;
+		sSun=result.topSteps[6].stepsValue;
 	} catch(e) {
-		HSunday=0;
+		sSun=0;
 	}
 	let sDaynum = 0
 	let sDay1 =(sDaynum+1)
