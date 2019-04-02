@@ -142,6 +142,7 @@ app.get('/profile', function(req,res) {
     }
 });
 
+app.get('/getTop7', getTop7);
 app.post('/login', authLogin);
 app.post('/signup', authUser);
 app.post('/addStats', addStat);
@@ -281,5 +282,58 @@ async function authUser(req,res) {
 async function logoutUser(req,res) {
     req.session.destroy();
     res.redirect('/');
+}
+
+async function getTop7(req,res) {
+  let topHydration = [];
+  let topWeight = [];
+  let topCalories = [];
+  let topSteps = [];
+
+  let sqlTopHydration = 'SELECT hydrationValue FROM fitnessprofile.hydration where username = ?';
+  connection.query(sqlTopHydration, req.session.userID, function(e, results) {
+    if (e) {
+      throw e;
+    }
+    else {
+      for (let i = 0; i < results.length || i < 7; i++) {
+        topHydration.push(results[i]);
+      }
+      let sqlTopWeight = 'SELECT weightValue FROM fitnessprofile.weight where username = ?';
+      connection.query(sqlTopWeight, req.session.userID, function(e, results) {
+        if (e) {
+          throw e;
+        }
+        else {
+          for (let i = 0; i < results.length || i < 7; i++) {
+            topWeight.push(results[i]);
+          }
+          let sqlTopCalories = 'SELECT caloriesValue FROM fitnessprofile.calories where username = ?';
+          connection.query(sqlTopCalories, req.session.userID, function(e, results) {
+            if (e) {
+              throw e;
+            }
+            else {
+              for (let i = 0; i < results.length || i < 7; i++) {
+                topCalories.push(results[i]);
+              }
+              let sqlTopWeight = 'SELECT stepsValue FROM fitnessprofile.steps where username = ?';
+              connection.query(sqlTopWeight, req.session.userID, function(e, results) {
+                if (e) {
+                  throw e;
+                }
+                else {
+                  for (let i = 0; i < results.length || i < 7; i++) {
+                    topSteps.push(results[i]);
+                  }
+                  res.json(topHydration, topWeight, topCalories, topSteps);
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+  });
 }
 app.listen(8080, console.log("Listening.."));
