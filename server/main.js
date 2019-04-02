@@ -60,6 +60,7 @@ app.get('/profile', function(req,res) {
     else {
         /* if authenticated */
         let statsArray = [];
+        const noStat = "No Stats";
 
         console.log("Showing profile for users", req.session.username);
         /* get all values from DB*/
@@ -78,8 +79,8 @@ app.get('/profile', function(req,res) {
               statsArray.push(results[mostRecent].hydrationValue);
              }
              catch(e){
-                console.log("No Stats");
-                res.render('Statistics_Page', {hydration: 'Not Set', weight: 'Not Set', calories: 'Not Set', steps: 'Not Set'});
+                console.log("No Hydration");
+                statsArray.push(noStat);
              }
              let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
              connection.query(sqlWeight, req.session.userID, function(e, results) {
@@ -88,7 +89,13 @@ app.get('/profile', function(req,res) {
                 }
                 else {
                   let mostRecent = results.length - 1;
-                  statsArray.push(results[mostRecent].weightValue);
+                  try {
+                   statsArray.push(results[mostRecent].weightValue);
+                  }
+                  catch(e){
+                    console.log("No Weight");
+                    statsArray.push(noStat);
+                  }
                   let sqlCalories = 'SELECT caloriesValue FROM calories WHERE userID = ?';
                   connection.query(sqlCalories, req.session.userID, function(e, results) {
                      if (e) {
@@ -96,7 +103,13 @@ app.get('/profile', function(req,res) {
                      }
                      else {
 		                   let mostRecent = results.length - 1;
-                       statsArray.push(results[mostRecent].caloriesValue);
+                       try {
+                        statsArray.push(results[mostRecent].caloriesValue);
+                       }
+                       catch(e){
+                         console.log("No Calories");
+                         statsArray.push(noStat);
+                       }
                        let sqlSteps = 'SELECT stepsValue FROM steps WHERE userID = ?';
                        connection.query(sqlSteps, req.session.userID, function(e, results) {
                           if (e) {
@@ -104,7 +117,13 @@ app.get('/profile', function(req,res) {
                           }
                           else {
 		                        let mostRecent = results.length - 1;
-                            statsArray.push(results[mostRecent].stepsValue);
+                            try {
+                             statsArray.push(results[mostRecent].stepsValue);
+                            }
+                            catch(e){
+                              console.log("No Steps");
+                              statsArray.push(noStat);
+                            }
 
                             let hydration = statsArray[0];
                             let weight = statsArray[1];
