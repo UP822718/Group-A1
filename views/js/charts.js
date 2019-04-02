@@ -294,6 +294,10 @@ jsonArray.then(function(result) {
 	}]
 	});
 	sChart.render();
+	  function CalHydration(){
+		  document.getElementById("MinHydration").innerHTML = "Minimal hydration: " +(result.topWeight[0].weightValue*10);
+	  }
+
 });
 
 }
