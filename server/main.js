@@ -55,7 +55,7 @@ app.get('/', function(req,res) {
 app.get('/profile', function(req,res) {
     /* Authentication */
     if (!req.session || !req.session.authenticate) {
-        res.sendStatus(401); // not authorized status
+        res.redirect('/'); // not authorized status
     }
     else {
         /* if authenticated */
