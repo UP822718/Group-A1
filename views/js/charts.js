@@ -83,37 +83,37 @@ jsonArray.then(function(result) {
 	chart.render();
 
 	try {
-		WMonday=result.topWeight[0].WeightValue;
+		WMonday=result.topWeight[0].weightValue;
 	} catch(e){
 		WMonday=0;
 	}
 	try {
-		WTuesday=result.topWeight[1].WeightValue;
+		WTuesday=result.topWeight[1].weightValue;
 	} catch(e) {
 		WTuesday=0;
 	}
 	try {
-		WWednesday=result.topWeight[2].WeightValue;
+		WWednesday=result.topWeight[2].weightValue;
 	} catch(e) {
 		WWednesday=0;
 	}
 	try {
-		WThursday=result.topWeight[3].WeightValue;
+		WThursday=result.topWeight[3].weightValue;
 	} catch(e) {
 		WThursday=0;
 	}
 	try {
-		WFriday=result.topWeight[4].WeightValue;
+		WFriday=result.topWeight[4].weightValue;
 	} catch(e) {
 		WFriday=0;
 	}
 	try {
-		WSaturday=result.topWeight[5].WeightValue;
+		WSaturday=result.topWeight[5].weightValue;
 	} catch(e) {
 		WSaturday=0;
 	}
 	try {
-		WSunday=result.topWeight[6].WeightValue;
+		WSunday=result.topWeight[6].weightValue;
 	} catch(e) {
 		WSunday=0;
 	}
