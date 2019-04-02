@@ -2,7 +2,7 @@ window.onload = function () {
 	async function getTop7() {
 		let res = await fetch('/getTop7');
 		let data = await res.json();
-		console.log("Data": data);
+		console.log("Data:", data);
 		return data;
 	}
 Weight = 70
