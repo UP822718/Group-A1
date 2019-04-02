@@ -201,10 +201,10 @@ jsonArray.then(function(result) {
 		animationEnabled: true,
 		theme: "light2", // "light1", "light2", "dark1", "dark2"
 		title:{
-			text: "calories lost per Day"
+			text: "calories consume per Day"
 		},
 		axisY: {
-			title: "calories lost"
+			title: "calories consume"
 		},
 		data: [{
 			type: "column",
