@@ -1,5 +1,5 @@
 window.onload = function () {
-	async function getTop7Stats() {
+	async function getTop7() {
 		let res = await fetch('/getTop7');
 		let data = await res.json();
 		console.log("Data": data);
