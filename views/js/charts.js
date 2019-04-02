@@ -11,14 +11,41 @@ console.log("jsonArray: ",jsonArray);
 jsonArray.then(function(result) {
 	console.log("statArray:",result);
 	console.log("hydrationArray:",result.topHydration);
-
-	HMonday=result.topHydration[0].hydrationValue;
-	HTuesday=result.topHydration[1].hydrationValue;
-	HWednesday=result.topHydration[2].hydrationValue;
-	HThursday=result.topHydration[3].hydrationValue;
-	HFriday=result.topHydration[4].hydrationValue;
-	HSaturday =result.topHydration[5].hydrationValue;
-	HSunday = result.topHydration[6].hydrationValue;
+	try {
+		HMonday=result.topHydration[0].hydrationValue;
+	} catch(e){
+		HMonday=0;
+	}
+	try {
+		HTuesday=result.topHydration[1].hydrationValue;
+	} catch(e) {
+		HTuesday=0;
+	}
+	try {
+		HWednesday=result.topHydration[2].hydrationValue;
+	} catch(e) {
+		HWednesday=0;
+	}
+	try {
+		HThursday=result.topHydration[3].hydrationValue;
+	} catch(e) {
+		HThursday=0;
+	}
+	try {
+		HFriday=result.topHydration[4].hydrationValue;
+	} catch(e) {
+		HFriday=0;
+	}
+	try {
+		HSaturday =result.topHydration[5].hydrationValue;
+	} catch(e) {
+		HSaturday=0;
+	}
+	try {
+		HSunday = result.topHydration[6].hydrationValue;
+	} catch(e) {
+		HSunday=0;
+	}
 	Hdaynum =0
 	Hday1 =(Hdaynum+1)
 	Hday2 =(Hdaynum+2)
@@ -55,13 +82,41 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	WMonday=result.topWeight[0].weightValue;
-	WTuesday=result.topWeight[1].weightValue;
-	WWednesday=result.topWeight[2].weightValue;
-	WThursday=result.topWeight[3].weightValue;
-	WFriday=result.topWeight[4].weightValue;
-	WSaturday =result.topWeight[5].weightValue;
-	WSunday =result.topWeight[6].weightValue;
+	try {
+		HMonday=result.topWeight[0].WeightValue;
+	} catch(e){
+		HMonday=0;
+	}
+	try {
+		HTuesday=result.topWeight[1].WeightValue;
+	} catch(e) {
+		HTuesday=0;
+	}
+	try {
+		HWednesday=result.topWeight[2].WeightValue;
+	} catch(e) {
+		HWednesday=0;
+	}
+	try {
+		HThursday=result.topWeight[3].WeightValue;
+	} catch(e) {
+		HThursday=0;
+	}
+	try {
+		HFriday=result.topWeight[4].WeightValue;
+	} catch(e) {
+		HFriday=0;
+	}
+	try {
+		HSaturday=result.topWeight[5].WeightValue;
+	} catch(e) {
+		HSaturday=0;
+	}
+	try {
+		HSunday=result.topWeight[6].WeightValue;
+	} catch(e) {
+		HSunday=0;
+	}
 	Wdaynum =0
 	Wday1 =(Wdaynum+1)
 	Wday2 =(Wdaynum+2)
@@ -98,13 +153,41 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	let cMon =result.topCalories[0].caloriesValue;
-	let cTue =result.topCalories[1].caloriesValue;
-	let cWed =result.topCalories[2].caloriesValue;
-	let cThu =result.topCalories[3].caloriesValue;
-	let cFri =result.topCalories[4].caloriesValue;
-	let cSat =result.topCalories[5].caloriesValue;
-	let cSun =result.topCalories[6].caloriesValue;
+	try {
+		HMonday=result.topCalories[0].caloriesValue;
+	} catch(e){
+		HMonday=0;
+	}
+	try {
+		HTuesday=result.topCalories[1].caloriesValue;
+	} catch(e) {
+		HTuesday=0;
+	}
+	try {
+		HWednesday=result.topCalories[2].caloriesValue;
+	} catch(e) {
+		HWednesday=0;
+	}
+	try {
+		HThursday=result.topCalories[3].caloriesValue;
+	} catch(e) {
+		HThursday=0;
+	}
+	try {
+		HFriday=result.topCalories[4].caloriesValue;
+	} catch(e) {
+		HFriday=0;
+	}
+	try {
+		HSaturday=result.topCalories[5].caloriesValue;
+	} catch(e) {
+		HSaturday=0;
+	}
+	try {
+		HSunday=result.topCalories[6].caloriesValue;
+	} catch(e) {
+		HSunday=0;
+	}
 	let cDaynum = 0
 	let cDay1 =(cDaynum+1)
 	let cDay2 =(cDaynum+2)
@@ -140,14 +223,42 @@ jsonArray.then(function(result) {
 		}]
 	});
 	cChart.render();
-	let sMax = result.topSteps.length;
-	let sMon =result.topSteps[0].stepsValue;
-	let sTue =result.topSteps[1].stepsValue;
-	let sWed =result.topSteps[2].stepsValue;
-	let sThu =result.topSteps[3].stepsValue;
-	let sFri =result.topSteps[4].stepsValue;
-	let sSat =result.topSteps[5].stepsValue;
-	let sSun =result.topSteps[6].stepsValue;
+
+	try {
+		HMonday=result.topSteps[0].stepsValue;
+	} catch(e){
+		HMonday=0;
+	}
+	try {
+		HTuesday=result.topSteps[1].stepsValue;
+	} catch(e) {
+		HTuesday=0;
+	}
+	try {
+		HWednesday=result.topSteps[2].stepsValue;
+	} catch(e) {
+		HWednesday=0;
+	}
+	try {
+		HThursday=result.topSteps[3].stepsValue;
+	} catch(e) {
+		HThursday=0;
+	}
+	try {
+		HFriday=result.topSteps[4].stepsValue;
+	} catch(e) {
+		HFriday=0;
+	}
+	try {
+		HSaturday=result.topSteps[5].stepsValue;
+	} catch(e) {
+		HSaturday=0;
+	}
+	try {
+		HSunday=result.topSteps[6].stepsValue;
+	} catch(e) {
+		HSunday=0;
+	}
 	let sDaynum = 0
 	let sDay1 =(sDaynum+1)
 	let sDay2 =(sDaynum+2)
