@@ -12,13 +12,13 @@ jsonArray.then(function(result) {
 	console.log("statArray:",result);
 	console.log("hydrationArray:",result.topHydration);
 
-	HMonday=result.topHydration[0].hydrationValue;
-	HTuesday=result.topHydration[1].hydrationValue;
-	HWednesday=result.topHydration[2].hydrationValue;
+	HMonday=result.topHydration[6].hydrationValue;
+	HTuesday=result.topHydration[5].hydrationValue;
+	HWednesday=result.topHydration[4].hydrationValue;
 	HThursday=result.topHydration[3].hydrationValue;
-	HFriday=result.topHydration[4].hydrationValue;
-	HSaturday =result.topHydration[5].hydrationValue;
-	HSunday = result.topHydration[6].hydrationValue;
+	HFriday=result.topHydration[2].hydrationValue;
+	HSaturday =result.topHydration[1].hydrationValue;
+	HSunday = result.topHydration[0].hydrationValue;
 	Hdaynum =0
 	Hday1 =(Hdaynum+1)
 	Hday2 =(Hdaynum+2)
@@ -55,13 +55,13 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	WMonday=result.topWeight[0].weightValue;
-	WTuesday=result.topWeight[1].weightValue;
-	WWednesday=result.topWeight[2].weightValue;
+	WMonday=result.topWeight[6].weightValue;
+	WTuesday=result.topWeight[5].weightValue;
+	WWednesday=result.topWeight[4].weightValue;
 	WThursday=result.topWeight[3].weightValue;
-	WFriday=result.topWeight[4].weightValue;
-	WSaturday =result.topWeight[5].weightValue;
-	WSunday =result.topWeight[6].weightValue;
+	WFriday=result.topWeight[2].weightValue;
+	WSaturday =result.topWeight[1].weightValue;
+	WSunday =result.topWeight[0].weightValue;
 	Wdaynum =0
 	Wday1 =(Wdaynum+1)
 	Wday2 =(Wdaynum+2)
@@ -98,13 +98,13 @@ jsonArray.then(function(result) {
 	});
 	chart.render();
 
-	let cMon =result.topCalories[0].caloriesValue;
-	let cTue =result.topCalories[1].caloriesValue;
-	let cWed =result.topCalories[2].caloriesValue;
+	let cMon =result.topCalories[6].caloriesValue;
+	let cTue =result.topCalories[5].caloriesValue;
+	let cWed =result.topCalories[4].caloriesValue;
 	let cThu =result.topCalories[3].caloriesValue;
-	let cFri =result.topCalories[4].caloriesValue;
-	let cSat =result.topCalories[5].caloriesValue;
-	let cSun =result.topCalories[6].caloriesValue;
+	let cFri =result.topCalories[2].caloriesValue;
+	let cSat =result.topCalories[1].caloriesValue;
+	let cSun =result.topCalories[0].caloriesValue;
 	let cDaynum = 0
 	let cDay1 =(cDaynum+1)
 	let cDay2 =(cDaynum+2)
@@ -141,13 +141,13 @@ jsonArray.then(function(result) {
 	});
 	cChart.render();
 	let sMax = result.topSteps.length;
-	let sMon =result.topSteps[0].stepsValue;
-	let sTue =result.topSteps[1].stepsValue;
-	let sWed =result.topSteps[2].stepsValue;
+	let sMon =result.topSteps[6].stepsValue;
+	let sTue =result.topSteps[5].stepsValue;
+	let sWed =result.topSteps[4].stepsValue;
 	let sThu =result.topSteps[3].stepsValue;
-	let sFri =result.topSteps[4].stepsValue;
-	let sSat =result.topSteps[5].stepsValue;
-	let sSun =result.topSteps[6].stepsValue;
+	let sFri =result.topSteps[2].stepsValue;
+	let sSat =result.topSteps[1].stepsValue;
+	let sSun =result.topSteps[0].stepsValue;
 	let sDaynum = 0
 	let sDay1 =(sDaynum+1)
 	let sDay2 =(sDaynum+2)
