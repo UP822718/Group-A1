@@ -55,7 +55,7 @@ app.get('/', function(req,res) {
 app.get('/profile', function(req,res) {
     /* Authentication */
     if (!req.session || !req.session.authenticate) {
-        res.sendStatus(401); // not authorized status
+        res.redirect('/'); // not authorized status
     }
     else {
         /* if authenticated */
@@ -72,7 +72,7 @@ app.get('/profile', function(req,res) {
            }
            else {
              console.log(results.length);
-	     console.log(results);
+	           console.log(results);
              let mostRecent = results.length - 1;
              statsArray.push(results[mostRecent].hydrationValue);
              let sqlWeight = 'SELECT weightValue FROM weight WHERE userID = ?';
@@ -119,7 +119,7 @@ app.get('/profile', function(req,res) {
 app.post('/login', authLogin);
 app.post('/signup', authUser);
 app.post('/addStats', addStat);
-
+app.post('/logout', logoutUser);
 
 
 /**
@@ -252,5 +252,8 @@ async function authUser(req,res) {
     });
 }
 
-
+async function logoutUser(req,res) {
+    req.logout();
+    res.redirect('/');
+}
 app.listen(8080, console.log("Listening.."));
