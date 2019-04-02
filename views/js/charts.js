@@ -154,39 +154,39 @@ jsonArray.then(function(result) {
 	chart.render();
 
 	try {
-		cMon=result.topCalories[0].caloriesValue;
+		let cMon=result.topCalories[0].caloriesValue;
 	} catch(e){
-		cMon=0;
+		let cMon=0;
 	}
 	try {
-		cTue=result.topCalories[1].caloriesValue;
+		let cTue=result.topCalories[1].caloriesValue;
 	} catch(e) {
-		cTue=0;
+		let cTue=0;
 	}
 	try {
-		cWed=result.topCalories[2].caloriesValue;
+		let cWed=result.topCalories[2].caloriesValue;
 	} catch(e) {
-		cWed=0;
+		let cWed=0;
 	}
 	try {
-		cThu=result.topCalories[3].caloriesValue;
+		let cThu=result.topCalories[3].caloriesValue;
 	} catch(e) {
-		cThu=0;
+		let cThu=0;
 	}
 	try {
-		cFri=result.topCalories[4].caloriesValue;
+		let cFri=result.topCalories[4].caloriesValue;
 	} catch(e) {
-		cFri=0;
+		let cFri=0;
 	}
 	try {
-		cSat=result.topCalories[5].caloriesValue;
+		let cSat=result.topCalories[5].caloriesValue;
 	} catch(e) {
-		cSaty=0;
+		let cSaty=0;
 	}
 	try {
-		cSun=result.topCalories[6].caloriesValue;
+		let cSun=result.topCalories[6].caloriesValue;
 	} catch(e) {
-		cSun=0;
+		let cSun=0;
 	}
 	let cDaynum = 0
 	let cDay1 =(cDaynum+1)
@@ -225,39 +225,39 @@ jsonArray.then(function(result) {
 	cChart.render();
 
 	try {
-		sMon=result.topSteps[0].stepsValue;
+		let sMon=result.topSteps[0].stepsValue;
 	} catch(e){
-		sMony=0;
+		let sMony=0;
 	}
 	try {
-		sTue=result.topSteps[1].stepsValue;
+		let sTue=result.topSteps[1].stepsValue;
 	} catch(e) {
-		sTue=0;
+		let sTue=0;
 	}
 	try {
-		sWed=result.topSteps[2].stepsValue;
+		let sWed=result.topSteps[2].stepsValue;
 	} catch(e) {
-		sWed=0;
+		let sWed=0;
 	}
 	try {
-		sThu=result.topSteps[3].stepsValue;
+		let sThu=result.topSteps[3].stepsValue;
 	} catch(e) {
-		sThu=0;
+		let sThu=0;
 	}
 	try {
-		sFri=result.topSteps[4].stepsValue;
+		let sFri=result.topSteps[4].stepsValue;
 	} catch(e) {
-		sFri=0;
+		let sFri=0;
 	}
 	try {
-		sSat=result.topSteps[5].stepsValue;
+		let sSat=result.topSteps[5].stepsValue;
 	} catch(e) {
-		sSat=0;
+		let sSat=0;
 	}
 	try {
-		sSun=result.topSteps[6].stepsValue;
+		let sSun=result.topSteps[6].stepsValue;
 	} catch(e) {
-		sSun=0;
+		let sSun=0;
 	}
 	let sDaynum = 0
 	let sDay1 =(sDaynum+1)
