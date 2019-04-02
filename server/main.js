@@ -113,7 +113,7 @@ app.get('/profile', function(req,res) {
 
 app.post('/login', authLogin);
 app.post('/signup', authUser);
-app.post('/add', addStat);
+app.post('/addStats', addStat);
 
 
 
