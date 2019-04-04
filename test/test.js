@@ -202,8 +202,11 @@ describe('Web interface', function() {
           headless: false
         });
         const page = await browser.newPage();
-        output = await page.evaluate(() => {});
+        output = await page.evaluate(() => {
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'value');
+        });
         await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
+        await browser.close();
       });
       it("send back invalid username only ", async function() {
         const browser = await puppeteer.launch({
@@ -213,8 +216,11 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
-        output = await page.evaluate(() => {});
+        output = await page.evaluate(() => {
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'value');
+        });
         await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
+        await browser.close();
       });
       it("send back invalid password only", async function() {
         const browser = await puppeteer.launch({
@@ -224,8 +230,11 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
-        output = await page.evaluate(() => {});
+        output = await page.evaluate(() => {
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(2) > input[type="password"]').setAttribute('value', 'value');
+        });
         await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
+        await browser.close();
       });
       it("send back invalid password and username", async function() {
         const browser = await puppeteer.launch({
@@ -235,35 +244,54 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
-        output = await page.evaluate(() => {});
+        output = await page.evaluate(() => {
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(2) > input[type="password"]').setAttribute('value', 'value');
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'value');
+        });
         await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
-      });
-      it("send back valid password only", async function() {
-        const browser = await puppeteer.launch({
-          headless: false
-        });
-        const page = await browser.newPage();
-        await page.goto('http://34.76.102.144:8080', {
-          waitUntil: ['load', 'domcontentloaded']
-        });
-        output = await page.evaluate(() => {});
-        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
-      });
-      it("send back valid username only ", async function() {
-        const browser = await puppeteer.launch({
-          headless: false
-        });
-        const page = await browser.newPage();
-        await page.goto('http://34.76.102.144:8080', {
-          waitUntil: ['load', 'domcontentloaded']
-        });
-        output = await page.evaluate(() => {});
-
-        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
+        await browser.close();
       });
     });
-    describe('valid', function() {
-      it("send back password and username", async function() {
+    it("send back valid password only", async function() {
+      const browser = await puppeteer.launch({
+        headless: false
+      });
+      const page = await browser.newPage();
+      await page.goto('http://34.76.102.144:8080', {
+        waitUntil: ['load', 'domcontentloaded']
+      });
+      output = await page.evaluate(() => {
+        document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(2) > input[type="password"]').setAttribute('value', 'cat');
+      });
+      await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
+      await browser.close();
+    });
+    it("send back valid username only ", async function() {
+      const browser = await puppeteer.launch({
+        headless: false
+      });
+      const page = await browser.newPage();
+      await page.goto('http://34.76.102.144:8080', {
+        waitUntil: ['load', 'domcontentloaded']
+      });
+      output = await page.evaluate(() => {
+        document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'cat');
+      });
+      try {
+
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
+        assert.equal(true, false);
+      } catch (err) {
+
+        assert.equal(true, true);
+      }
+      await browser.close();
+    });
+
+  });
+  describe('valid', function() {
+    it("send back password and username", async function() {
+
         const browser = await puppeteer.launch({
           headless: false
         });
@@ -271,10 +299,12 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
-        output = await page.evaluate(() => {});
-
+        output = await page.evaluate(() => {
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'cat');
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'cat');
+        });
         await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
-      });
+        await browser.close();
     });
   });
 });
