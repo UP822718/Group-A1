@@ -10,10 +10,9 @@ const app = express();
 const connection = mysql.createConnection( { host: "localhost",user: "root",password: "root" ,database: "fitnessprofile"} );
 
 /**
- * connection - description
- *
- * @param  {type} function(e description
- * @return {type}            description
+ *  This function attempts to establish a connection with the database
+ *  If an error occurs, that error is thrown
+ *  If a connection is successfully established, a success message is sent to the console
  */
 connection.connect(function(e) {
     if (e) {
@@ -33,20 +32,20 @@ app.use(session({
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 /**
- *  this will send the clint the login screen when going to "/"
- * @param  {type} '/'    is the localtion of the index page
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This GET route will render the login screen for the client when routed to "/"
+ * @param  {String} '/' = the URL path of the index page
+ * @param  {Request} req = An object that holds the request over HTTP
+ * @param  {Response} res = An object sent as a response to the client
  */
 app.get('/', function(req,res) {
     response.render('index');
 });
 
 /**
- *  this will send the clint the profile infomation when thay go to "/profile"
- * @param  {type} '/'    is the localtion of the index page
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This GET route will render the profile page for the user, with their stats pulled from the database if present 
+ * @param  {String} '/profile' = The location of the index page
+ * @param  {Request} req object holds our session data, which is used to authenticate the user when routed to /profile
+ * @param  {Response} res renders our profile page with hydration, weight, calories and steps if present
  */
 app.get('/profile', function(req,res) {
     /* Authentication */
@@ -146,10 +145,10 @@ app.post('/logout', logoutUser);
 
 
 /**
- * this function will check if the user name and password and if thay are vaild
- *if it is vaild then sends back a toekn
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This function will log the user in if they have entered a user name and password that match an account stored on the database
+ * If the user exists and the profile hash matches the hash stored on the account, a cookie is created to verify the user once they are redirected to /profile
+ * @param  {Request} req object holds the encrypted user name and password text entered into the form (POST method)
+ * @param  {Response} res either redirects the user to /profile, with the new session created or refreshes the login page if accounts don't match
  */
 async function authLogin(req,res) {
     const username = req.body.username;
@@ -184,9 +183,9 @@ async function authLogin(req,res) {
      });
 }
 /**
- * this function will allow the user to add stats to the user profile
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This function will allow the user to add stats to their user profile
+ * @param  {Request} req object holds the hydration, weight, calories, and steps value entered by the user
+ * @param  {Response} res redirects the user to the /profile route, which refreshes the profile page with the most recent stats entered 
  */
 async function addStat(req,res) {
   /* Declare variables from form request */
@@ -241,9 +240,9 @@ async function addStat(req,res) {
 }
 
 /**
- * this function function add a user to the database if there is not one
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This function creates a new user account using the input user name and password if an account with that user name doesn't already exist
+ * @param  {Request} req object contains the user name and password submitted on the sign up page (POST method)
+ * @param  {Response} res redirects the user to the login page if a new account has been created, or redirects the user back to the sign up page if a user name already exists 
  */
 async function authUser(req,res) {
     const username = req.body.username;
@@ -277,18 +276,18 @@ async function authUser(req,res) {
     });
 }
 /**
- * this funcation logout a users
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This function logs out a user by destroying their session
+ * @param  {Request} req object holds the session created for the current user on login
+ * @param  {Response} res redirects the user back to the login page after their session has been destroyed
  */
 async function logoutUser(req,res) {
     req.session.destroy();
     res.redirect('/');
 }
 /**
- * this function function get the last 7 results of static that have been enterd
- * @param  {Response} req a object that allows us to response to the cilent
- * @param  {Request} res    get the requst of the HTTP
+ *  This function gets the last 7 statistics entered by the user for each stat (hydration, weight, calories and steps)
+ * @param  {Request} req object holds the userID of the user, accessed through their session (req.session)
+ * @param  {Response} res sends a json array of json arrays for each stat, with each holding the most recent 7 values entered into the database
  */
 async function getTop7(req,res) {
   let topHydration = [];
