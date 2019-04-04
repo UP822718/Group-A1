@@ -16,7 +16,10 @@ CLIENT SIDE:
 2. [ ] Re-Work statistics_page.html so that the forms are only used for inputting new stats
 
 GOAL: FINISH BY 6pm 2/04/2019. If we achieve this we have time to get feedback from the mentor meeting on wednesday (3/04/2019)
-# Installatin
+# Saver installatin 
+1. open CMD or Terminal
+2. cd to dir 
+3. run npm install
 # Operation
 # Developers 
 UP879385 = stephenvane 
