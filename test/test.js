@@ -182,14 +182,12 @@ describe('Web interface', function() {
         await page.click('#particles-js > span > form > span:nth-child(4) > input[type=submit]')
         await page.waitForNavigation();
 
-          console.log(page.url());
+        console.log(page.url());
         //await browser.close();
-        if(page.url() == "http://34.76.102.144:8080/")
-        {
+        if (page.url() == "http://34.76.102.144:8080/") {
           sert.equal(true, output);
-        }
-        else {
-                  assert.equal(true, false);
+        } else {
+          assert.equal(true, false);
         }
       });
 
@@ -199,15 +197,68 @@ describe('Web interface', function() {
   });
   describe('Login', function() {
     describe('invalid', function() {
-      it("send back nothing", async function() {});
-      it("send back invalid username only ", async function() {});
-      it("send back invalid password only", async function() {});
-      it("send back invalid password and username", async function() {});
-      it("send back valid password only", async function() {});
-      it("send back valid username only ", async function() {});
+      it("send back nothing", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+      });
+      it("send back invalid username only ", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080', {
+          waitUntil: ['load', 'domcontentloaded']
+        });
+      });
+      it("send back invalid password only", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080', {
+          waitUntil: ['load', 'domcontentloaded']
+        });
+      });
+      it("send back invalid password and username", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080', {
+          waitUntil: ['load', 'domcontentloaded']
+        });
+      });
+      it("send back valid password only", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080', {
+          waitUntil: ['load', 'domcontentloaded']
+        });
+      });
+      it("send back valid username only ", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080', {
+          waitUntil: ['load', 'domcontentloaded']
+        });
+      });
     });
     describe('valid', function() {
-      it("send back password and username", async function() {});
+      it("send back password and username", async function() {
+        const browser = await puppeteer.launch({
+          headless: false
+        });
+        const page = await browser.newPage();
+        await page.goto('http://34.76.102.144:8080', {
+          waitUntil: ['load', 'domcontentloaded']
+        });
+      });
     });
   });
 });
