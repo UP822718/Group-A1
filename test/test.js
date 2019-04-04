@@ -202,6 +202,8 @@ describe('Web interface', function() {
           headless: false
         });
         const page = await browser.newPage();
+        output = await page.evaluate(() => {});
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
       it("send back invalid username only ", async function() {
         const browser = await puppeteer.launch({
@@ -211,6 +213,8 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
+        output = await page.evaluate(() => {});
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
       it("send back invalid password only", async function() {
         const browser = await puppeteer.launch({
@@ -220,6 +224,8 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
+        output = await page.evaluate(() => {});
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
       it("send back invalid password and username", async function() {
         const browser = await puppeteer.launch({
@@ -229,6 +235,8 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
+        output = await page.evaluate(() => {});
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
       it("send back valid password only", async function() {
         const browser = await puppeteer.launch({
@@ -238,6 +246,8 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
+        output = await page.evaluate(() => {});
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
       it("send back valid username only ", async function() {
         const browser = await puppeteer.launch({
@@ -247,6 +257,9 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
+        output = await page.evaluate(() => {});
+
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
     });
     describe('valid', function() {
@@ -258,6 +271,9 @@ describe('Web interface', function() {
         await page.goto('http://34.76.102.144:8080', {
           waitUntil: ['load', 'domcontentloaded']
         });
+        output = await page.evaluate(() => {});
+
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
       });
     });
   });
