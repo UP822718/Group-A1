@@ -1,4 +1,10 @@
 window.onload = function () {
+	/**
+	 * @async
+	 * @function getTop7
+	 * this function will get the top 10 from the saver
+	 * @return {jsonArray} of fitness statics
+	 */
 	async function getTop7() {
 		let res = await fetch('/getTop7');
 		console.log("RES:", res);

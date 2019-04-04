@@ -33,24 +33,20 @@ app.use(session({
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 /**
- * app - description
- *
- * @param  {type} '/'          description
- * @param  {type} function(req description
- * @param  {type} res          description
- * @return {type}              description
+ *  this will send the clint the login screen when going to "/"
+ * @param  {type} '/'    is the localtion of the index page
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
  */
 app.get('/', function(req,res) {
     response.render('index');
 });
 
 /**
- * app - description
- *
- * @param  {type} '/profile'   description
- * @param  {type} function(req description
- * @param  {type} res          description
- * @return {type}              description
+ *  this will send the clint the profile infomation when thay go to "/profile"
+ * @param  {type} '/'    is the localtion of the index page
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
  */
 app.get('/profile', function(req,res) {
     /* Authentication */
@@ -150,11 +146,10 @@ app.post('/logout', logoutUser);
 
 
 /**
- * authLogin - description
- *
- * @param  {type} req description
- * @param  {type} res description
- * @return {type}     description
+ * this function will check if the user name and password and if thay are vaild
+ *if it is vaild then sends back a toekn
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
  */
 async function authLogin(req,res) {
     const username = req.body.username;
@@ -188,7 +183,11 @@ async function authLogin(req,res) {
        }
      });
 }
-
+/**
+ * this function will allow the user to add stats to the user profile
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
+ */
 async function addStat(req,res) {
   /* Declare variables from form request */
   const hydration = req.body.hydration;
@@ -240,12 +239,11 @@ async function addStat(req,res) {
      }
    });
 }
+
 /**
- * authUser - description
- *
- * @param  {type} req description
- * @param  {type} res description
- * @return {type}     description
+ * this function function add a user to the database if there is not one
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
  */
 async function authUser(req,res) {
     const username = req.body.username;
@@ -278,12 +276,20 @@ async function authUser(req,res) {
        }
     });
 }
-
+/**
+ * this funcation logout a users
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
+ */
 async function logoutUser(req,res) {
     req.session.destroy();
     res.redirect('/');
 }
-
+/**
+ * this function function get the last 7 results of static that have been enterd
+ * @param  {Response} req a object that allows us to response to the cilent
+ * @param  {Request} res    get the requst of the HTTP
+ */
 async function getTop7(req,res) {
   let topHydration = [];
   let topWeight = [];
