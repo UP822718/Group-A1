@@ -158,7 +158,11 @@ jsonArray.then(function(result) {
 		}]
 	});
 	chart.render();
-
+	try{
+		document.getElementById("MinHydration").innerHTML = "Minimal Hydration: " +((result.topWeight[0].weightValue*3)/100)+" Litre";
+	} catch(e){
+		document.getElementById("MinHydration").innerHTML = "Minimal Hydration: N/A";
+	}
 	try {
 		CMon=result.topCalories[0].caloriesValue;
 	} catch(e){
