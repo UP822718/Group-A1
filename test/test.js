@@ -300,13 +300,14 @@ describe('Web interface', function() {
           headless: false
         });
         const page = await browser.newPage();
-        await page.goto( 'http://35.240.7.14:8080/signup', {
+        await page.goto( IP, {
           waitUntil: ['load', 'domcontentloaded']
         });
         output = await page.evaluate(() => {
-          //document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'cat');
-          //document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(2) > input[type="password"]').setAttribute('value', 'cat');
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(1) > input[type="text"]').setAttribute('value', 'cat');
+          document.documentElement.querySelector('#particles-js > section > div > form > div:nth-child(2) > input[type="password"]').setAttribute('value', 'cat');
         });
+        await page.click('#particles-js > section > div > form > div:nth-child(3) > input[type="submit"]');
         await browser.close();
     });
   });
