@@ -1,21 +1,15 @@
 # Group-A1
-Todo list
-1. [ ] make sure those functions that client subteam made will work with the server subteam
-
-19/03/2019 TO DO:
-
-1. [ ] Create server side functions to pull user data from the database
-
-2. [ ] Link Fitness Stats database to Login database 
-
-3. [ ] Use data pulled from the database to populate graphs
-
-Data Required:
-
-Weight / day
-Excercise Hours (how many hours excercised)
-Hydration
-Steps
-Calories
+7 Day Fitness App 
+# Server Installation  
+1. Clone this repository 
+2. Open CMD or Terminal
+2. cd into the cloned repository directory 
+3. Type 'npm install' (This will install all of the dependencies/packages needed, and initialise the database)
+4. Type 'npm start' to start the server
+# Testing
+Screenshots of output from unit test can be found in the test_screenshots folder in this REPO 
+# Developers 
+UP879385 = stephenvane 
+UP836734 = MoHashan13
 
 

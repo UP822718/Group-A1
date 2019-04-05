@@ -1,0 +1,54 @@
+<!-- This is the HTML code for the signup page -->
+<!DOCTYPE html>
+<html>
+<!-- The head section below contains the style of the page -->
+<head>
+  <title>7 Day Fitness </title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style media="screen">
+    #first-name, #last-name, #weight, #height, #hydration, #steps, #primary-paragraph {
+          border: 5px solid #ccc;
+          padding: 10px;
+          margin-bottom: 10px;
+
+        }
+        .content{
+          top:0%;
+          overflow: scroll;
+          height:100%
+        }
+        .col1{
+          display: grid;
+           grid-template-columns: auto;
+           justify-content: center;
+        }
+
+      </style>
+</head>
+<!-- Below is the body that contains the contents that would be shown on the page -->
+<body id="particles-js">
+  <canvas id="canvas"></canvas>
+  <script src="./js/particles.js"></script>
+  <script src="./js/particles-js.js"></script>
+  <span class="content">
+    <h1> 7 Day Fitness </h1>
+<!-- The start of the sign up section including the username and password intake -->
+    <form class="login-form" action="signup" method="POST">
+      <span class="wrapper">
+        <input type="text" name="username" placeholder="Username" required>
+      </span>
+      <span class="wrapper">
+        <input type="password" name="password" placeholder="Password" required>
+      </span>
+      <span class="wrapper">
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+      </span>
+      <span class="wrapper">
+        <input type="submit" name="submit">
+      </span>
+  </span>
+</body>
+
+<!-- End of the sign up page code -->
+
+</html>
