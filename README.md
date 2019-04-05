@@ -6,8 +6,8 @@
 2. cd into the cloned repository directory 
 3. Type 'npm install' (This will install all of the dependencies/packages needed, and initialise the database)
 4. Type 'npm start' to start the server
-# Testing Sign-up Unit Tests Screenshot
-
+# Sign-up Unit Test Screenshot
+ ![](test_screenshots/signup_test.png)
 # Developers 
 UP879385 = stephenvane 
 UP836734 = MoHashan13
