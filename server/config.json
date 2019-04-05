@@ -1,8 +1,7 @@
-{
+
 "sql":{
 "host": "localhost",
 "password":"root",
 "user": "root",
 "database": "fitnessprofile"
-}
 }
